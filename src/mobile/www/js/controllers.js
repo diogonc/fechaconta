@@ -3,9 +3,10 @@ angular.module('starter.controllers', [])
 .controller('ComandaCtrl', function($scope) {})
 
 .controller('MenuCtrl', function($scope, $http) {
- 
+  var homeUrl = 'http://fechaconta.azurewebsites.net/';
+
   $scope.$on('$ionicView.enter', function(e) {
-      $http.get('http://fechaconta.azurewebsites.net/api/cardapio').success(function(data){
+      $http.get(homeUrl+'api/cardapio').success(function(data){
         console.log(data);
         $scope.itens = data;
       });
