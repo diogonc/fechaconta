@@ -1,6 +1,6 @@
-var Pedido = function (numeroDoPedido, mesa) {
+var Pedido = function (numeroDaComanda, mesa) {
 	var self = this;
-	self.numeroDoPedido = numeroDoPedido;
+	self.numeroDaComanda = numeroDaComanda;
 	self.mesa = mesa;
 	self.itens = [];
 
@@ -27,7 +27,6 @@ var Pedido = function (numeroDoPedido, mesa) {
 		}
 	}
 }
-
 
 function findById(source, id) {
   for (var i = 0; i < source.length; i++) {

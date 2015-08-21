@@ -14,7 +14,9 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('MenuCtrl', function($scope, $http, PedidoRepository) {
+.controller('ConfirmarCtrl', function($scope) {})
+
+.controller('MenuCtrl', function($scope, $http, PedidoRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
   var pedido;
 
@@ -36,11 +38,19 @@ angular.module('starter.controllers', [])
   };
 
   $scope.adicionarItem = function(item){    
+
     pedido.adicionar(item);
+    console.log(pedido);
   };
 
   $scope.removerItem = function(item){
     pedido.remover(item);
-  }
+  };
+
+  $scope.fazerPedido = function(){
+
+    PedidoRepository.save(pedido);
+    $state.go('tab.confirmar');
+  };
 
 });
