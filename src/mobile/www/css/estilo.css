@@ -15,7 +15,7 @@ input, select, textarea{
 body#body{
 	background: url(../img/bg.jpg) center top;
 	position: fixed;
-	font-family: 'Courgette', cursive;
+	font-family: 'Lobster', cursive;
 
 }
 .oculto{
@@ -23,7 +23,7 @@ body#body{
 }
 
 input{
-	font-family: 'Courgette', cursive;
+	font-family: 'Lobster', cursive;
    	padding: 8px;
 	color: #fff;
 }
@@ -52,11 +52,12 @@ input{
 
 #paginaInicial{
 	position: absolute;
-    top: 20%;
+    top: 32%;
     width: 75%;
     text-align: center;
     margin: 0 auto;
     color: #fff;
+    height: auto;
 }
 
 .conteudo{
@@ -67,7 +68,7 @@ input{
 	text-align: center;
     display: block;
     margin-top: 31px;
-    font-size: 46px;
+    font-size: 57px;
 }
 
 #paginaInicial .chamada-logo{
@@ -78,33 +79,31 @@ input{
 	border:none;
 }
 
-#paginaInicial input{
-	border-bottom: 1px solid #fff;
-	color: #fff;
-}
-
 #paginaInicial label{
 	color: #fff;
 }
 
-
-::-webkit-input-placeholder {
-   color: #fff;
+#paginaInicial label span{
+	color: #fff;
+	font-size: 12px;
 }
 
-:-moz-placeholder {
-   color: #fff;
+#paginaInicial label input{
+	border-bottom: 1px solid #fff;
+	color: #fff !important;
+	font-family: 'Lobster', cursive;
+	font-size: 22px;
 }
 
-::-moz-placeholder {
-   color: #fff;
+*::-webkit-input-placeholder {
+   color: #fff !important;
 }
-
-:-ms-input-placeholder {  
-   color: #fff;
+*:-moz-placeholder {
+   color: #fff !important;
+} 
+*:-ms-input-placeholder { /* IE10+ */
+   color: #fff !important;
 }
-
-
 
 
 .numero-mesa{
@@ -128,7 +127,7 @@ input{
 		width: 50%;
 		display: inline-block;
 	    vertical-align: top;
-	    	font-family: 'Courgette', cursive;
+	    font-family: 'Lobster', cursive;
 	   	padding: 8px;
 		color: #fff;
 		    text-align: center;
@@ -143,11 +142,10 @@ input{
 	overflow: hidden;
 	width: 100%;
 	position: inherit;
-	background-color: transparent !important;
+	background: rgba(17,17,17,.8) !important;
 }
 
 .tabs .categoria{
-	background-color: #fff !important;
 	margin: 3px;
 }
 
@@ -191,12 +189,13 @@ input{
 	.itens .titulo{
 		font-size: 21px;
 	}
+
 .itens:hover{
-	background-color: rgb(202, 154, 43);
+	background-color: rgba(161, 159, 155, 0.3);
 }
 
 .itens-selecionado{
-	background-color: rgb(202, 154, 43);
+	background-color: rgba(161, 159, 155, 0.3);
 }	
 
 
@@ -291,3 +290,25 @@ input{
 	}
 		
  }
+
+
+ #confirmaComanda  .informacoes .titulo{
+ 	display: block;
+ }
+
+#confirmaComanda  .informacoes .quantidade-item{
+ 	display: inline-block;
+ 	vertical-align: top;
+ 	float: none;
+
+}
+
+#confirmaComanda  .informacoes .valor{
+ 	display: inline-block;
+ 	vertical-align: top;
+	font-size: 18px;
+}
+
+#confirmaComanda  .informacoes .valor span{
+ 	font-size: 13px;
+}

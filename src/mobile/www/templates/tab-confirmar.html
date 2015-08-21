@@ -1,5 +1,5 @@
 <ion-view view-title="Confirmar" class="conteudo">
-  <ion-content >
+  <ion-content id="confirmaComanda">
     <div class="logo">FechaConta</div>
     <div class="numero-mesa">
       <div class="texto">Mesa: {{pedido.mesa}}</div>
@@ -10,10 +10,10 @@
           <div class="descricoes">
               <div class="titulo">{{item.produto.Nome}}</div>
           </div> 
-          <div class="valor">R$ {{item.produto.Valor | number:2}}</div>
            <div class="quantidade-item">
-            	<div class="texto">qtd: {{item.quantidade}}</div>
+              <div class="texto">qtd: {{item.quantidade}}</div>
           </div> 
+          <div class="valor">R$ {{item.produto.Valor | number:2}} <span>item</span></div>
           <div class="valor">Sub-total: R$ {{item.valorTotal | number:2}}</div>
         </div>
       </ion-item>
