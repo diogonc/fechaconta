@@ -1,4 +1,5 @@
 ﻿using Fechaconta.WebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -29,7 +30,6 @@ namespace Fechaconta.WebApp.Controllers
             cardapio.Adicionar("Sobremesas", "Surpresa de Limão", "Sufle de Limão com raspas de chocolate.", 5.10);
             cardapio.Adicionar("Sobremesas", "Petit gâteau", "Doce de Leite, Chocollate em Barras com Sorvete.", 5.10);
 
-
             cardapio.Adicionar("Bebidas", "Skol", "Bem geladinha.", 2.5);
             cardapio.Adicionar("Bebidas", "Antartica", "Mais geladinha ainda.", 3);
 
@@ -51,7 +51,7 @@ namespace Fechaconta.WebApp.Controllers
             var item = categoria.Itens.FirstOrDefault(i => i.Nome == nomeDoItem);
             if (item == null)
             {
-                item = new Item { Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem };
+                item = new Item { Id = Guid.NewGuid(), Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem };
                 categoria.Itens.Add(item);
             }
         }
