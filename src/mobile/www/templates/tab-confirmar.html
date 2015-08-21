@@ -1,5 +1,25 @@
-<ion-view view-title="Confirmar">
-  <ion-content class="padding">
-    CONFIRMAR
-  </ion-content>
+<ion-view view-title="Confirmar" class="conteudo">
+  <ion-content >
+    <div class="logo">FechaConta</div>
+    <div class="numero-mesa">
+      <div class="texto">Mesa: {{pedido.mesa}}</div>
+    </div>   
+    <ion-list id="listaProdutos">
+      <ion-item class="itens item-remove-animate" ng-repeat="item in pedido.itens" type="item-text-wrap">
+        <div class="informacoes">
+          <div class="descricoes">
+              <div class="titulo">{{item.produto.Nome}}</div>
+          </div> 
+          <div class="valor">R$ {{item.produto.Valor | number:2}}</div>
+           <div class="quantidade-item">
+            	<div class="texto">qtd: {{item.quantidade}}</div>
+          </div> 
+          <div class="valor">Sub-total: R$ {{item.valorTotal | number:2}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-amarelo">voltar</button>
+    <button class="button button-block button-amarelo">confirmar pedido</button>
+
+  </ion-content>  
 </ion-view>

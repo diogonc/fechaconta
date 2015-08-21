@@ -14,7 +14,13 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('ConfirmarCtrl', function($scope) {})
+.controller('ConfirmarCtrl', function($scope, PedidoRepository) {
+
+    $scope.$on('$ionicView.enter', function(e) {
+        $scope.pedido = PedidoRepository.get();
+        console.log($scope.pedido);
+    });
+})
 
 .controller('MenuCtrl', function($scope, $http, PedidoRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
@@ -25,7 +31,7 @@ angular.module('starter.controllers', [])
         $scope.itens = data;      
         inicializarQuantidade();
       });
-      comanda = PedidoRepository.getAll()[0];
+      comanda = PedidoRepository.get();
       $scope.mesa = comanda.mesa;
       pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
       
