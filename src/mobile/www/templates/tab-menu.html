@@ -20,9 +20,11 @@
           <div class="valor">R$ {{item.Valor | number:2}}</div>
           <div class="quantidade-item">
             <div class="texto">qtd: {{item.quantidade}}</div>
-          </div>           
-           <div class="adiciona" ng-click="adicionarItem(item)">Quero mais<span></span></div> 
-           <div class="remove" ng-click="removerItem(item)">Não quero mais!</div> 
+          </div>    
+          <div class="inseri-mais-produtos">       
+             <div class="botao-adicionar-remover" ng-click="adicionarItem(item)"><img src="img/add.png" alt=""><span></span></div> 
+             <div class="botao-adicionar-remover" ng-click="removerItem(item)"><img src="img/excluir.png" alt=""></div> 
+          </div>   
         </div>        
       </ion-item>
     </ion-list>

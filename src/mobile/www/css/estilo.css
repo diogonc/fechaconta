@@ -53,7 +53,7 @@ input{
 #paginaInicial{
 	position: absolute;
     top: 32%;
-    width: 75%;
+    width: 83%;
     text-align: center;
     margin: 0 auto;
     color: #fff;
@@ -143,15 +143,16 @@ input{
 	width: 100%;
 	position: inherit;
 	background: rgba(17,17,17,.8) !important;
+	color: #fff;
 }
 
-.tabs .categoria{
+.tabs a.categoria{
 	margin: 3px;
+	color: #fff;
 }
 
 .tabs .ativo{
-	background-color: #FFB606 !important;
-    color: #583E01;
+    color: #ffb606 !important;
 }
 
 #listaProdutos{
@@ -237,15 +238,26 @@ input{
 
 }
 
+.inseri-mais-produtos{
+	display: inline-block;
+    vertical-align: top;
+    margin: 10px 0 10px 70px;
+}
+
+.botao-adicionar-remover{    
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
 
 
+}
 
 .ion-view{
 	background: transparent;
 }
 
 
- @media all and (min-width:240px) and (max-width: 377px){
+ @media all and (min-width:240px) and (max-width: 400px){
 	.itens{
 		background: rgba(0, 0, 0, 0.8);
 		border:none;
@@ -311,4 +323,9 @@ input{
 
 #confirmaComanda  .informacoes .valor span{
  	font-size: 13px;
+}
+
+#confirmaComanda  .informacoes .excluir{
+ 	font-size: 16px;
+ 	text-align: right;
 }
