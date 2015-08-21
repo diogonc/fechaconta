@@ -2,7 +2,7 @@
   <ion-content >
     <div class="logo">Fecha Conta</div>
     <div class="numero-mesa">
-      <div class="texto">Mesa:{{mesa}} </div>      
+      <div class="texto">Mesa: {{pedido.mesa}}</div>
     </div>
     <div class="tabs">
       <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
@@ -10,9 +10,8 @@
       </a>
     </div>
     <ion-list id="listaProdutos">
-      <ion-item class="itens item-remove-animate" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem($index)">
-        <img class="img-pratos" src="http://fechaconta.azurewebsites.net/content/fotos/{{item.NomeDaImagem}}" alt="">
-
+      <ion-item class="itens item-remove-animate" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
+        <img class="img-pratos" ng-src="http://fechaconta.azurewebsites.net/content/fotos/{{item.NomeDaImagem}}" alt="">
         <div class="informacoes">
           <div class="descricoes">
               <div class="titulo">{{item.Nome}}</div>
@@ -20,15 +19,15 @@
           </div> 
           <div class="valor">R$ {{item.Valor | number:2}}</div>
           <div class="quantidade-item">
-            <div class="texto">qtd</div>
-            <input type="tel" name="quantidade" id="quantidade">
+            <div class="texto">qtd: {{item.quantidade}}</div>
           </div>           
+           <div ng-click="adicionarItem(item)">Quero este!</div> 
+           <div ng-click="removerItem(item)">Não quero mais!</div> 
         </div>       
       </ion-item>
     </ion-list>
     <button class="button button-block button-amarelo">
       fazer pedido
     </button>
-  </ion-content>
-  
+  </ion-content>  
 </ion-view>
