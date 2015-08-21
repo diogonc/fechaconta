@@ -1,8 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('MesaCtrl', function($scope, $http, ComandaRepository, PedidoRepository, $state) {
-  var homeUrl = 'http://fechaconta.azurewebsites.net/';
-
+  
   $scope.$on('$ionicView.enter', function(e) {
     ComandaRepository.limparDados();
     PedidoRepository.limparDados();  
@@ -29,22 +28,17 @@ angular.module('starter.controllers', [])
   }
 
   $scope.confirmar = function(){
-
-    var homeUrl = 'http://fechaconta.azurewebsites.net/';
-		// LOCAL: var homeUrl = 'http://localhost:17357/'
-
+    
 		$http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){      
 			
-			//PedidoRepository.delete();
-
+			PedidoRepository.limparDados();
 			$state.go('tab.comanda');
     });
 
   };
 })
 
-.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {
-  var homeUrl = 'http://fechaconta.azurewebsites.net/';
+.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
   var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {

@@ -5,6 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
+
+var homeUrl = 'http://fechaconta.azurewebsites.net/';
+//var homeUrl = 'http://localhost:17357/';
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
