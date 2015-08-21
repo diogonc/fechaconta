@@ -1,7 +1,12 @@
 angular.module('starter.controllers', [])
 
-.controller('MesaCtrl', function($scope, $http, ComandaRepository, $state) {
+.controller('MesaCtrl', function($scope, $http, ComandaRepository, PedidoRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
+  
+  $scope.$on('$ionicView.enter', function(e) {
+    ComandaRepository.limparDados();
+    PedidoRepository.limparDados();  
+  });  
 
   $scope.abrirComanda = function(mesa){
    $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
@@ -17,8 +22,11 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.enter', function(e) {
     $scope.pedido = PedidoRepository.get();
-    console.log($scope.pedido);
   });
+
+  $scope.voltar = function(){
+    $state.go('tab.menu');
+  }
 
   $scope.confirmar = function(){
 
@@ -93,8 +101,6 @@ angular.module('starter.controllers', [])
   };
 
   function inicializarQuantidade() {
-    console.log('foi', $scope.itens);
-
     for (var i = 0; i < $scope.itens.Categorias.length; i++) {
      var categoria= $scope.itens.Categorias[i];
      for (var j = 0; j < categoria.Itens.length; j++) {
