@@ -7,10 +7,8 @@ namespace Fechaconta.WebApp.Controllers
 {
     public class CardapioController : ApiController
     {
-        // GET api/values
         public Cardapio Get()
         {
-
             return CriadorDeCardapio.Criar();
         }
     }
@@ -19,60 +17,13 @@ namespace Fechaconta.WebApp.Controllers
     {
         public static Cardapio Criar()
         {
-            var cardapio = new Cardapio();
-            var categorias = new List<Categoria>();
+            var cardapio = new Cardapio() { Categorias = new List<Categoria>() };
 
-            var bolinhos = new Categoria()
-            {
-                Nome = "Bolinhos"
-            };
+            cardapio.Adicionar("Bolinhos", "Bolinho de Feijoada", "Recheado com couve e bacon.", 7.56);
+            cardapio.Adicionar("Bolinhos", "Bolinho de Comitiva", "Bolinho de arroz com carne de sol e queijo coalho.", 11);
 
-            var bolinhoDeFeijoada = new Item()
-            {
-                Nome = "Bolinho de Feijoada",
-                Descricao = "Recheado com couve e bacon.",
-                Valor = 7.56
-            };
-            var bolinhoDeComitiva = new Item()
-            {
-                Nome = "Bolinho de Comitiva",
-                Descricao = "Bolinho de arroz com carne de sol e queijo coalho.",
-                Valor = 11.00
-            };
-
-            var itensDaCategoriaBolinhos = new List<Item>();
-            itensDaCategoriaBolinhos.Add(bolinhoDeFeijoada);
-            itensDaCategoriaBolinhos.Add(bolinhoDeComitiva);
-            bolinhos.Itens = itensDaCategoriaBolinhos;
-
-            categorias.Add(bolinhos);
-
-            var bebidas = new Categoria()
-            {
-                Nome = "Bebidas"
-            };
-
-            var skol = new Item()
-            {
-                Nome = "Skol",
-                Descricao = "Bem geladinha.",
-                Valor = 2.50
-            };
-            var antartica = new Item()
-            {
-                Nome = "Antartica",
-                Descricao = "Mais geladinha ainda.",
-                Valor = 3.00
-            };
-
-            var itensDaCategoriaBebidas = new List<Item>();
-            itensDaCategoriaBebidas.Add(bolinhoDeFeijoada);
-            itensDaCategoriaBebidas.Add(bolinhoDeComitiva);
-            bebidas.Itens = itensDaCategoriaBebidas;
-
-            categorias.Add(bebidas);
-
-            cardapio.Categorias = categorias;
+            cardapio.Adicionar("Bebidas", "Skol", "Bem geladinha.", 2.5);
+            cardapio.Adicionar("Bebidas", "Antartica", "Mais geladinha ainda.", 3);
 
             return cardapio;
         }
@@ -89,10 +40,10 @@ namespace Fechaconta.WebApp.Controllers
                 cardapio.Categorias.Add(categoria);
             }
 
-            var item = categoria.Itens.FirstOrDefault();
+            var item = categoria.Itens.FirstOrDefault(i => i.Nome == nomeDoItem);
             if (item == null)
             {
-                item = new Item()
+                item = new Item
                 {
                     Nome = nomeDoItem,
                     Descricao = descricaoDoItem,
