@@ -40,27 +40,19 @@ angular.module('starter.controllers', [])
   $scope.adicionarItem = function(item){    
 
     pedido.adicionar(item);
-<<<<<<< HEAD
     item.quantidade += 1;
-=======
-    console.log(pedido);
->>>>>>> 2c9518da866e447f7b237188c7fc104aa5773552
   };
 
   $scope.removerItem = function(item){
     pedido.remover(item);
-<<<<<<< HEAD
     if(item.quantidade > 0) {
         item.quantidade -= 1;
     }
-=======
   };
 
   $scope.fazerPedido = function(){
-
     PedidoRepository.save(pedido);
     $state.go('tab.confirmar');
->>>>>>> 2c9518da866e447f7b237188c7fc104aa5773552
   };
 
   function inicializarQuantidade() {
