@@ -19,7 +19,7 @@ namespace Fechaconta.WebApp.Controllers
             var comanda = new Comanda { Numero = numeroDaComanda, NumeroDaMesa = numeroDaMesa };
             ComandaRepositorio.Adicionar(comanda);
 
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            return new HttpResponseMessage(HttpStatusCode.Created) { Content = new StringContent(numeroDaComanda) };
         }
     }
 }
