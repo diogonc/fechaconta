@@ -8,7 +8,7 @@ input, select, textarea{
 }
 
 body#body{
-	background: url(../img/bg.jpg);
+	background: url(../img/bg.jpg) center top;
 	position: fixed;
 	font-family: 'Courgette', cursive;
 
@@ -36,13 +36,40 @@ input{
 	background-color: #F8AF00;
 }	
 
-
 .logo{
 	color: #ffb606;
     font-size: 21px;
     margin: 15px;
     display: inline-block;
     vertical-align: top;
+}
+
+
+#paginaInicial{
+	text-align: center;
+}
+
+#paginaInicial .logo{
+	text-align: center;
+    display: block;
+    margin-top: 45px;
+}
+
+#paginaInicial .chamada-logo{
+
+}
+
+#paginaInicial .item{
+	border:none;
+}
+
+#paginaInicial input{
+	border-bottom: 1px solid #fff;
+
+}
+
+#paginaInicial input-label{
+	color: #fff;
 }
 
 .numero-mesa{
@@ -71,6 +98,11 @@ input{
 		color: #fff;
 		    text-align: center;
 	}
+..tabs-top {
+	display: none;
+	top: 0 !important;
+}
+
 
 .tabs{
 	overflow: hidden;
@@ -177,12 +209,6 @@ input{
 .ion-view{
 	background: transparent;
 }
-
-
-.scroll-content {
-    background: url(../img/bg.jpg);
-
-  }
 
 
  @media all and (min-width:240px) and (max-width: 377px){

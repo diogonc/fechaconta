@@ -1,11 +1,13 @@
-<ion-view view-title="Mesa">
-  <ion-content style="color:#fff">
-  		<div class="list">
-		  <label class="item item-input item-floating-label">
-		    <span class="input-label">Numero da mesa</span>
-		    <input type="text" placeholder="Numero da mesa" ng-model="mesa">
-		  </label>
-		  <button class="button button-block button-positive" ng-click="abrirComanda(mesa)">Abrir comanda</button>		  
+<ion-view view-title="Mesa" id="paginaInicial">
+	<ion-content style="color:#fff">
+		<div class="logo">FechaConta</div>	
+		<div class="chamada-logo">Sua comanda online</div>
+		<div class="list">
+			<label class="item item-input item-floating-label">
+				<span class="input-label">Numero da mesa</span>
+				<input type="text" placeholder="Numero da mesa" ng-model="mesa">
+			</label>
+			 <button class="button button-amarelo button-block " ng-click="abrirComanda(mesa)">Abrir comanda</button>		  
 		</div>
-   </ion-content>  
+	</ion-content>  
 </ion-view>
