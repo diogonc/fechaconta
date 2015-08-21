@@ -5,10 +5,15 @@
       <input type="number" step="1" name="mesa" id="mesa">
     </div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in itens.Categorias[0].Itens" type="item-text-wrap">
-        <h2>{{item.Nome}}</h2>
-        <p>{{item.Descricao}}</p>
-        <p>{{item.Valor}}</p>
+      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[0].Itens" type="item-text-wrap">
+        <img class="img-pratos" src="https://placehold.it/350x150" alt="">
+        <div class="informacoes">
+          <div class="descricoes">
+              <div class="titulo">{{item.Nome}}</div>
+              <div class="descricao">{{item.Descricao}}</div>
+          </div>            
+          <div class="valor">R$ {{item.Valor}}</div>
+        </div>          
       </ion-item>
     </ion-list>
     <button class="button button-block">
