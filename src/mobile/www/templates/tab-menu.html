@@ -10,7 +10,7 @@
       </a>
     </div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem(2)">
         <h2>{{item.Nome}}</h2>
         <p>{{item.Descricao}}</p>
         <p>{{item.Valor}}</p>
