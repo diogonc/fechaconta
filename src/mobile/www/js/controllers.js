@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
 .controller('ConfirmarCtrl', function($scope, PedidoRepository) {
 
     $scope.$on('$ionicView.enter', function(e) {
-        $scope.pedido = PedidoRepository.getAll()[0];
+        $scope.pedido = PedidoRepository.get();
         console.log($scope.pedido);
     });
 })
@@ -31,7 +31,7 @@ angular.module('starter.controllers', [])
         $scope.itens = data;      
         inicializarQuantidade();
       });
-      comanda = PedidoRepository.getAll()[0];
+      comanda = PedidoRepository.get();
       $scope.mesa = comanda.mesa;
       pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
       
