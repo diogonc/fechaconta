@@ -14,7 +14,13 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('ConfirmarCtrl', function($scope) {})
+.controller('ConfirmarCtrl', function($scope, PedidoRepository) {
+
+    $scope.$on('$ionicView.enter', function(e) {
+        $scope.pedido = PedidoRepository.getAll()[0];
+        console.log($scope.pedido);
+    });
+})
 
 .controller('MenuCtrl', function($scope, $http, PedidoRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
