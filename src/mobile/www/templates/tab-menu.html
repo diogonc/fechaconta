@@ -6,7 +6,7 @@
       <input type="tel" name="mesa" id="mesa">
     </div>
     <div class="tabs">
-      <a class="categoria tab-item" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
+      <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
         {{categoria.Nome}}
       </a>
     </div>
