@@ -1,12 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('MesaCtrl', function($scope, $http, PedidoRepository, $state) {
+.controller('MesaCtrl', function($scope, $http, ComandaRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
   $scope.abrirComanda = function(mesa){
    $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
-    var pedido = new Pedido(numeroDaComanda, mesa);
-    PedidoRepository.save(pedido);
+    ComandaRepository.save({mesa:mesa, numeroDaComanda: numeroDaComanda});
     $state.go('tab.menu');
   });
  }
@@ -56,7 +55,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MenuCtrl', function($scope, $http, ComandaRepository, $state) {
+.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
   var pedido;
 
@@ -65,10 +64,9 @@ angular.module('starter.controllers', [])
       $scope.itens = data;
       inicializarQuantidade();
     });
-    comanda = PedidoRepository.get();
+    comanda = ComandaRepository.get();
     $scope.mesa = comanda.mesa;
     pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
-
   });
 
   $scope.categoriaSelecionada = 0;
