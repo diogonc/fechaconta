@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
   });
 
   $scope.confirmar = function(){
-    
+
     var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
 
@@ -43,23 +43,17 @@ angular.module('starter.controllers', [])
       ]
     };
 
-    var req = {
-      method: 'POST',
-      url: homeUrl + 'api/pedido',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: pedido
-    };
+  console.log(pedido);
+   console.log(JSON.stringify(pedido));
 
-    $http.post(req).success(function(){          
+    $http.post(homeUrl + 'api/pedido', JSON.stringify(pedido), { headers: {'Content-Type': 'application/json' } }).success(function(){          
       PedidoRepository.delete();
       $state.go('tab.menu');
     });
   };
 })
 
-.controller('MenuCtrl', function($scope, $http, PedidoRepository, $state) {
+.controller('MenuCtrl', function($scope, $http, ComandaRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
   var pedido;
 
@@ -71,7 +65,7 @@ angular.module('starter.controllers', [])
     comanda = PedidoRepository.get();
     $scope.mesa = comanda.mesa;
     pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
-    
+
   });
 
   $scope.categoriaSelecionada = 0;
@@ -100,7 +94,7 @@ angular.module('starter.controllers', [])
 
   function inicializarQuantidade() {
     console.log('foi', $scope.itens);
-    
+
     for (var i = 0; i < $scope.itens.Categorias.length; i++) {
      var categoria= $scope.itens.Categorias[i];
      for (var j = 0; j < categoria.Itens.length; j++) {
