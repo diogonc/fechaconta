@@ -8,5 +8,6 @@ namespace Fechaconta.WebApp.Models
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public double Valor { get; set; }
+        public string NomeDaImagem { get; set; }
     }
 }

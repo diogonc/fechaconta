@@ -1,11 +1,23 @@
-<ion-view view-title="Mesa">
+<ion-view view-title="Mesa" id="paginaInicial">
   <ion-content style="color:#fff">
+  		<div class="logo">FechaConta</div>	
+		<div class="chamada-logo">Sua comanda online</div>
   		<div class="list">
 		  <label class="item item-input item-floating-label">
 		    <span class="input-label">Numero da mesa</span>
 		    <input type="text" placeholder="Numero da mesa" ng-model="mesa">
 		  </label>
+<<<<<<< HEAD
 		  <button class="button button-block button-positive" ng-click="abrirComanda(mesa)">Abrir comanda</button>
+=======
+		  <button class="button button-block button-amarelo " ng-click="abrirComanda(mesa)">Abrir comanda</button>
+            <script>
+                var el = document.getElementsByClassName("icon ion-ios-chatboxes");
+
+                // Single class
+                el.classList.remove("oculto");
+            </script>
+>>>>>>> 414733402f84843928b7c46365307a9102d64fd7
 		</div>
-   </ion-content>  
+	</ion-content>  
 </ion-view>
