@@ -5,6 +5,7 @@
 
 .tab-nav {
     display: none;
+    margin: 0 !important;
 }
 
 input, select, textarea{
