@@ -1,0 +1,113 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body#body{
+	background: url(../img/bg.jpg);
+	position: fixed;
+	font-family: 'Courgette', cursive;
+
+}
+
+.itens{
+	background: rgba(0, 0, 0, 0.8);
+	margin: 20px 10px;
+	color: #fff;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #3F3F3F;
+}
+.itens .img-pratos{
+	width: 46%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+}
+
+.itens .informacoes{
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+
+.itens .descricoes{
+	display: inline-block;
+	vertical-align: top;
+	color: #fff;
+
+}
+
+	.itens .titulo{
+		font-size: 21px;
+	}
+
+.itens .valor{
+	font-size: 35px;
+    color: #ffd44c;
+	width: 20%;
+	    margin-top: 17px;
+}
+
+
+
+
+.ion-view{
+	background: transparent;
+}
+
+
+.scroll-content {
+    background: url(../img/bg.jpg);
+
+  }
+
+
+ @media all and (min-width:240px) and (max-width: 377px){
+	.itens{
+		background: rgba(0, 0, 0, 0.8);
+		border:none;
+		margin: 10px 0;
+		color: #fff;
+		width: 100%;
+		border-bottom: 2px solid #3F3F3F;
+
+	}
+
+	.itens .img-pratos{
+		width: 100%;
+	    margin-right: 15px;
+	    display: block;
+	    margin-bottom: 10px;
+	}
+
+	.itens .informacoes{
+		width: 100%;
+	}
+
+	.itens .descricoes{
+		display: inline-block;
+		vertical-align: top;
+		color: #fff;
+
+	}
+
+		.itens .titulo{
+			font-size: 23px;
+		}
+		
+		.itens .descricao{
+			font-size: 16px;
+			margin-top: 7px;
+    		color: #828282;
+		}
+
+
+	.itens .valor{
+		font-size: 29px;
+	    color: #ffd44c;
+		width: 20%;
+		margin-top: 17px;
+	}
+		
+ }
