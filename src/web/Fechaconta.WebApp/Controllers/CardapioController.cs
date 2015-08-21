@@ -17,7 +17,7 @@ namespace Fechaconta.WebApp.Controllers
     {
         public static Cardapio Criar()
         {
-            var cardapio = new Cardapio() { Categorias = new List<Categoria>() };
+            var cardapio = new Cardapio { Categorias = new List<Categoria>() };
 
             cardapio.Adicionar("Bolinhos", "Bolinho de Feijoada", "Recheado com couve e bacon.", 7.56);
             cardapio.Adicionar("Bolinhos", "Bolinho de Comitiva", "Bolinho de arroz com carne de sol e queijo coalho.", 11);
@@ -36,19 +36,14 @@ namespace Fechaconta.WebApp.Controllers
             var categoria = cardapio.Categorias.FirstOrDefault(c => c.Nome == nomeDaCategoria);
             if (categoria == null)
             {
-                categoria = new Categoria() { Nome = nomeDaCategoria, Itens = new List<Item>() };
+                categoria = new Categoria { Nome = nomeDaCategoria, Itens = new List<Item>() };
                 cardapio.Categorias.Add(categoria);
             }
 
             var item = categoria.Itens.FirstOrDefault(i => i.Nome == nomeDoItem);
             if (item == null)
             {
-                item = new Item
-                {
-                    Nome = nomeDoItem,
-                    Descricao = descricaoDoItem,
-                    Valor = valorDoItem
-                };
+                item = new Item { Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem };
                 categoria.Itens.Add(item);
             }
         }
