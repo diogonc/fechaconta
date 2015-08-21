@@ -1,5 +1,6 @@
 <ion-view view-title="Menu">
   <ion-content>
+    <img src="" alt="" class="logo">
     <div>
       Mesa
       <input type="number" step="1" name="mesa" id="mesa">
@@ -10,12 +11,17 @@
       </a>
     </div>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem(2)">
-        <h2>{{item.Nome}}</h2>
-        <p>{{item.Descricao}}</p>
-        <p>{{item.Valor}}</p>
+      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem(2)">
+        <img class="img-pratos" src="https://placehold.it/350x150" alt="">
+        <div class="informacoes">
+          <div class="descricoes">
+              <div class="titulo">{{item.Nome}}</div>
+              <div class="descricao">{{item.Descricao}}</div>
+          </div>            
+          <div class="valor">R$ {{item.Valor}}</div>
+        </div>  
         <label class="checkbox">
-         <input type="checkbox">
+          <input type="checkbox">
        </label>
       </ion-item>
     </ion-list>
