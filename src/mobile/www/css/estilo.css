@@ -1,0 +1,23 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body#body{
+	background: url(../img/bg.jpg);
+	position: fixed;
+}
+
+.ion-list{
+
+}
+
+.ion-view{
+	background: transparent;
+}
+
+
+.scroll-content {
+    background: url(../img/bg.jpg);
+
+  }
