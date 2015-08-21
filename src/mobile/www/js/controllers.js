@@ -1,5 +1,9 @@
 angular.module('starter.controllers', [])
 
+.controller('MesaCtrl', function($scope) {
+    $scope.test = "sfafdsa";
+})
+
 .controller('ComandaCtrl', function($scope) {})
 
 .controller('MenuCtrl', function($scope, $http) {
@@ -26,22 +30,4 @@ angular.module('starter.controllers', [])
 
     $scope.pedido.push({produto: produto, quantidade:1});
   }
-})
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
 });
-
-
-var pedido = function(numeroDoPedido){
-  var self = this;
-  self.numeroDoPedido = numeroDoPedido
-
-
-}
