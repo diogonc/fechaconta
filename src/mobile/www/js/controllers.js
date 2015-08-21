@@ -23,8 +23,8 @@ angular.module('starter.controllers', [])
 
   $scope.confirmar = function(){
 
-    var homeUrl = 'http://fechaconta.azurewebsites.net/';
-
+    //var homeUrl = 'http://fechaconta.azurewebsites.net/';
+    var homeUrl = 'http://localhost:17357/'
 
     var pedido = {
       NumeroDaComanda: 'sample string 1',
@@ -42,7 +42,6 @@ angular.module('starter.controllers', [])
       }
       ]
     };
-
 
     $http({
         url: homeUrl + 'api/pedido',
