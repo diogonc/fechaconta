@@ -4,8 +4,8 @@ angular.module('starter.controllers', [])
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
   $scope.abrirComanda = function(mesa){
-       $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(data){
-        var pedido = new Pedido(data);
+       $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
+        var pedido = new Pedido(numeroDaComanda, mesa);
         PedidoRepository.save(pedido);
         $state.go('tab.menu');
       });
@@ -23,19 +23,24 @@ angular.module('starter.controllers', [])
         $scope.itens = data;
       });
 
-      numeroDoPedido = PedidoRepository.getAll()[0];
-      pedido = new Pedido(numeroDoPedido);
+      comanda = PedidoRepository.getAll()[0];
+      $scope.mesa = comanda.mesa;
+
+      pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
   });
 
   $scope.categoriaSelecionada = 1;
 
   $scope.alterarCategoria = function(indiceDaCategoria){
     $scope.categoriaSelecionada = indiceDaCategoria;
+  };
+
+  $scope.adicionarItem = function(item){    
+    pedido.adicionar(item);
+  };
+
+  $scope.removerItem = function(item){
+    pedido.remover(item);
   }
 
-  $scope.selecionarItem = function(indiceDoitem){
-    var produto = $scope.itens.Categorias[$scope.categoriaSelecionada].Itens[indiceDoitem];
-
-    pedido.adicionarProduto(produto, 1);
-  }
 });
