@@ -11,7 +11,7 @@
       </a>
     </div>
     <ion-list>
-      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem(2)">
+      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap" ng-click="selecionarItem($index)">
         <img class="img-pratos" src="https://placehold.it/350x150" alt="">
         <div class="informacoes">
           <div class="descricoes">
