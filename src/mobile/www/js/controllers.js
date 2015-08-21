@@ -15,7 +15,23 @@ angular.module('starter.controllers', [])
  }
 })
 
-.controller('ComandaCtrl', function($scope) {})
+.controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
+  $scope.$on('$ionicView.enter', function(e) {
+    var comanda = ComandaRepository.get();
+    $scope.comanda = comanda;
+    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(data){
+      $scope.itens = data;
+    });
+
+    $scope.voltar = function(){
+      $state.go('tab.menu');
+    }
+
+    $scope.fecharConta = function(){
+
+    }
+  });  
+})
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
 

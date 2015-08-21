@@ -1,5 +1,28 @@
 <ion-view view-title="Comanda">
-  <ion-content class="padding">
-    aqui é a comanda
+   <ion-content id="confirmaComanda">
+    <div class="logo">FechaConta</div>
+    <div class="numero-mesa">
+      <div class="texto">Mesa: {{comanda.mesa}}</div>
+    </div>   
+    <ion-list id="listaProdutos">
+      <ion-item class="itens item-remove-animate" ng-repeat="pedido in itens.Pedidos" type="item-text-wrap">
+        <div class="informacoes">
+          <div class="descricoes">
+              <div class="titulo">Pedido {{$index + 1}}</div>
+          </div> 
+          <ul>
+          	<li ng-repeat="item in pedido.ItensDoPedido">
+				<div class="quantidade-item">
+				<div class="texto">qtd: {{item.Quantidade}}</div>
+				<div class="texto">{{item.Produto.Nome}}</div>
+				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
+				<div class="valor">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
+          	</li>
+          </ul>
+        </div>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
+    <button class="button button-block button-amarelo" ng-click="voltar()">voltar</button>
   </ion-content>
 </ion-view>
