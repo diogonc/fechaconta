@@ -142,11 +142,10 @@ input{
 	overflow: hidden;
 	width: 100%;
 	position: inherit;
-	background-color: transparent !important;
+	background: rgba(17,17,17,.8) !important;
 }
 
 .tabs .categoria{
-	background-color: #fff !important;
 	margin: 3px;
 }
 
@@ -190,12 +189,13 @@ input{
 	.itens .titulo{
 		font-size: 21px;
 	}
+
 .itens:hover{
-	background-color: rgb(202, 154, 43);
+	background-color: rgba(161, 159, 155, 0.3);
 }
 
 .itens-selecionado{
-	background-color: rgb(202, 154, 43);
+	background-color: rgba(161, 159, 155, 0.3);
 }	
 
 
@@ -290,3 +290,25 @@ input{
 	}
 		
  }
+
+
+ #confirmaComanda  .informacoes .titulo{
+ 	display: block;
+ }
+
+#confirmaComanda  .informacoes .quantidade-item{
+ 	display: inline-block;
+ 	vertical-align: top;
+ 	float: none;
+
+}
+
+#confirmaComanda  .informacoes .valor{
+ 	display: inline-block;
+ 	vertical-align: top;
+	font-size: 18px;
+}
+
+#confirmaComanda  .informacoes .valor span{
+ 	font-size: 13px;
+}
