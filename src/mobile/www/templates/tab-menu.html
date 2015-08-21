@@ -1,33 +1,33 @@
 <ion-view view-title="Menu">
   <ion-content>
-    <img src="" alt="" class="logo">
-    <div>
-      Mesa
-      <input type="number" step="1" name="mesa" id="mesa">
+    <div class="logo">Fecha Conta</div>
+    <div class="numero-mesa">
+      <div class="texto">Mesa</div>
+      <input type="tel" name="mesa" id="mesa">
     </div>
     <div class="tabs">
-      <a class="tab-item" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
+      <a class="categoria tab-item" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
         {{categoria.Nome}}
       </a>
     </div>
-    <ion-list>
-      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
-        <img class="img-pratos" src="https://placehold.it/350x150" alt="">
+    <ion-list id="listaProdutos">
+      <ion-item class="itens item-remove-animate" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
+        <img class="img-pratos" src="img/img1.jpg" alt="">
         <div class="informacoes">
           <div class="descricoes">
               <div class="titulo">{{item.Nome}}</div>
               <div class="descricao">{{item.Descricao}}</div>
-          </div>            
+          </div> 
           <div class="valor">R$ {{item.Valor}}</div>
-        </div>  
-
-        <label class="checkbox">
-          <input type="checkbox">
-       </label>
+          <div class="quantidade-item">
+            <div class="texto">qtd</div>
+            <input type="tel" name="quantidade" id="quantidade">
+          </div>           
+        </div>       
       </ion-item>
     </ion-list>
-    <button class="button button-block">
-      Fechar pedido
+    <button class="button button-block button-amarelo">
+      fazer pedido
     </button>
   </ion-content>
   

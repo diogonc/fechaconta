@@ -10,6 +10,82 @@ body#body{
 
 }
 
+input{
+	font-family: 'Courgette', cursive;
+   	padding: 8px;
+	color: #fff;
+}
+
+.button-amarelo{
+	background: #ffb606;
+    border-color: #ffb606;
+    color: #2a2a2a;
+    color: #2a2a2a;
+    margin: 10px;
+    width: 95% !important;
+}
+
+.button-amarelo:hover{
+	background-color: #F8AF00;
+}	
+
+
+.logo{
+	color: #ffb606;
+    font-size: 21px;
+    margin: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.numero-mesa{
+	display: inline-block;
+	vertical-align: top;
+	width: 38%;
+    margin: 12px 0;
+    float: right;
+}
+
+	.numero-mesa .texto{
+		font-size: 15px;
+	    color: #fff;
+	    display: inline-block;
+	    vertical-align: top;
+	    margin: 5px;
+	}
+	.numero-mesa input{
+		background: rgba(0, 0, 0, 0.8);
+		border: 1px solid #635858;
+		width: 50%;
+		display: inline-block;
+	    vertical-align: top;
+	    	font-family: 'Courgette', cursive;
+	   	padding: 8px;
+		color: #fff;
+		    text-align: center;
+	}
+
+.tabs{
+	overflow: hidden;
+	width: 100%;
+	position: inherit;
+	background-color: transparent !important;
+}
+
+.tabs .categoria{
+	background-color: #fff !important;
+	margin: 3px;
+}
+
+.tabs .ativo{
+	background-color: #FFB606 !important;
+    color: #583E01;
+}
+
+#listaProdutos{
+	width: 100%;
+}
+
 .itens{
 	background: rgba(0, 0, 0, 0.8);
 	margin: 20px 10px;
@@ -32,21 +108,60 @@ body#body{
 }
 
 .itens .descricoes{
-	display: inline-block;
-	vertical-align: top;
+	display: block;
 	color: #fff;
+	width: 100%;
 
 }
 
 	.itens .titulo{
 		font-size: 21px;
 	}
+.itens:hover{
+	background-color: rgb(202, 154, 43);
+}
+
+.itens-selecionado{
+	background-color: rgb(202, 154, 43);
+}	
+
+
+.quantidade-item{
+	display: inline-block;
+	vertical-align: top;
+	width: 22%;
+    margin: 12px 0;
+        float: right;
+}
+
+	.quantidade-item .texto{
+		font-size: 15px;
+	    color: #fff;
+	    display: inline-block;
+	    vertical-align: top;
+	    margin: 5px;
+	}
+	.quantidade-item input{
+		background: rgba(0, 0, 0, 0.8);
+		border: 1px solid #635858;
+		width: 50%;
+		display: inline-block;
+	    vertical-align: top;
+	    	font-family: 'Courgette', cursive;
+	   	padding: 8px;
+		color: #fff;
+		    text-align: center;
+	}
+
 
 .itens .valor{
 	font-size: 35px;
     color: #ffd44c;
 	width: 20%;
-	    margin-top: 17px;
+	margin-top: 17px;
+	display: inline-block;
+	vertical-align: top;
+
 }
 
 
@@ -79,18 +194,13 @@ body#body{
 	    margin-right: 15px;
 	    display: block;
 	    margin-bottom: 10px;
+	    height: 134px;
 	}
 
 	.itens .informacoes{
 		width: 100%;
 	}
 
-	.itens .descricoes{
-		display: inline-block;
-		vertical-align: top;
-		color: #fff;
-
-	}
 
 		.itens .titulo{
 			font-size: 23px;
@@ -104,10 +214,12 @@ body#body{
 
 
 	.itens .valor{
-		font-size: 29px;
+	    font-size: 24px;
 	    color: #ffd44c;
-		width: 20%;
+	    width: 34%;
 		margin-top: 17px;
+		display: inline-block;
+		vertical-align: top;
 	}
 		
  }
