@@ -22,7 +22,7 @@ angular.module('starter.controllers', [])
   });
 
   $scope.confirmar = function(){
-    
+
     var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
 
@@ -39,23 +39,21 @@ angular.module('starter.controllers', [])
         },
         Quantidade: 1,
         Valor: 4.1
-      }      
+      }
       ]
     };
 
-    var req = {
-      method: 'POST',
-      url: homeUrl + 'api/pedido',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      data: pedido
-    };
-
-    $http.post(req).success(function(){          
-      PedidoRepository.delete();
-      $state.go('tab.menu');
+    $http({
+        url: homeUrl + 'api/pedido',
+        method: "POST",
+        data: $.param({
+            pedido
+        }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
     });
+
   };
 })
 
@@ -65,13 +63,13 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.enter', function(e) {
     $http.get(homeUrl+'api/cardapio').success(function(data){
-      $scope.itens = data;      
+      $scope.itens = data;
       inicializarQuantidade();
     });
     comanda = PedidoRepository.get();
     $scope.mesa = comanda.mesa;
     pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
-    
+
   });
 
   $scope.categoriaSelecionada = 0;
@@ -80,7 +78,7 @@ angular.module('starter.controllers', [])
     $scope.categoriaSelecionada = indiceDaCategoria;
   };
 
-  $scope.adicionarItem = function(item){    
+  $scope.adicionarItem = function(item){
 
     pedido.adicionar(item);
     item.quantidade += 1;
@@ -100,7 +98,7 @@ angular.module('starter.controllers', [])
 
   function inicializarQuantidade() {
     console.log('foi', $scope.itens);
-    
+
     for (var i = 0; i < $scope.itens.Categorias.length; i++) {
      var categoria= $scope.itens.Categorias[i];
      for (var j = 0; j < categoria.Itens.length; j++) {
