@@ -2,10 +2,8 @@ angular.module('starter.controllers', [])
 
 .controller('MesaCtrl', function($scope, $http, PedidoRepository, $state) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
-  $scope.test = "sfafdsa";
 
-
-    $scope.abrirComanda = function(mesa){
+  $scope.abrirComanda = function(mesa){
        $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(data){
         var pedido = new Pedido(data);
         PedidoRepository.save(pedido);
@@ -16,15 +14,17 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('MenuCtrl', function($scope, $http) {
+.controller('MenuCtrl', function($scope, $http, PedidoRepository) {
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
+  var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
-      
       $http.get(homeUrl+'api/cardapio').success(function(data){
-        console.log(data);
         $scope.itens = data;
       });
+
+      numeroDoPedido = PedidoRepository.getAll()[0];
+      pedido = new Pedido(numeroDoPedido);
   });
 
   $scope.categoriaSelecionada = 1;
@@ -35,9 +35,7 @@ angular.module('starter.controllers', [])
 
   $scope.selecionarItem = function(indiceDoitem){
     var produto = $scope.itens.Categorias[$scope.categoriaSelecionada].Itens[indiceDoitem];
-    produto.Selecionado = true;
 
-
-    $scope.pedido.push({produto: produto, quantidade:1});
+    pedido.adicionarProduto(produto, 1);
   }
 });
