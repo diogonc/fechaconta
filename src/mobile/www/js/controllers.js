@@ -39,16 +39,20 @@ angular.module('starter.controllers', [])
         },
         Quantidade: 1,
         Valor: 4.1
-      }      
+      }
       ]
     };
 
-  console.log(pedido);
-   console.log(JSON.stringify(pedido));
 
-    $http.post(homeUrl + 'api/pedido', JSON.stringify(pedido), { headers: {'Content-Type': 'application/json' } }).success(function(){          
-      PedidoRepository.delete();
-      $state.go('tab.menu');
+    $http({
+        url: homeUrl + 'api/pedido',
+        method: "POST",
+        data: $.param({
+            pedido
+        }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
     });
   };
 })
@@ -59,7 +63,7 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.enter', function(e) {
     $http.get(homeUrl+'api/cardapio').success(function(data){
-      $scope.itens = data;      
+      $scope.itens = data;
       inicializarQuantidade();
     });
     comanda = PedidoRepository.get();
@@ -74,7 +78,7 @@ angular.module('starter.controllers', [])
     $scope.categoriaSelecionada = indiceDaCategoria;
   };
 
-  $scope.adicionarItem = function(item){    
+  $scope.adicionarItem = function(item){
 
     pedido.adicionar(item);
     item.quantidade += 1;

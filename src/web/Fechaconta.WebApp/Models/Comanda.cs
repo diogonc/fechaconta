@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Fechaconta.WebApp.Models
 {
@@ -11,6 +12,11 @@ namespace Fechaconta.WebApp.Models
         public Comanda()
         {
             Pedidos = new List<Pedido>();
+        }
+
+        public double Valor()
+        {
+            return Pedidos.Sum(i => i.Valor());
         }
 
         public void Adicionar(Pedido pedido)
