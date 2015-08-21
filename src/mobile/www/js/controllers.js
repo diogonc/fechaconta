@@ -53,7 +53,6 @@ angular.module('starter.controllers', [])
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
     });
-
   };
 })
 
