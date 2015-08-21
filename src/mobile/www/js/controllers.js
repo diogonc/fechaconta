@@ -11,6 +11,12 @@ angular.module('starter.controllers', [])
         $scope.itens = data;
       });
   });
+
+  $scope.categoriaSelecionada = 1;
+
+  $scope.alterarCategoria = function(indiceDaategoria){
+    $scope.categoriaSelecionada = indiceDaategoria;
+  }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
