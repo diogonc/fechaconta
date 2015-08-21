@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\fotos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -157,6 +156,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\ComandaController.cs" />
     <Compile Include="Models\Comanda.cs" />
     <Compile Include="Models\ComandaRepositorio.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -176,6 +176,18 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fotos\antartica-original.png" />
+    <Content Include="Content\fotos\brahma-garafa.jpg" />
+    <Content Include="Content\fotos\skol-garafa.png" />
+    <Content Include="Content\fotos\bolinho-carne-sol.png" />
+    <Content Include="Content\fotos\bolinho-comitiva.png" />
+    <Content Include="Content\fotos\bolinho-feijoada.png" />
+    <Content Include="Content\fotos\salada-carrapicho.png" />
+    <Content Include="Content\fotos\salada-cezinha.png" />
+    <Content Include="Content\fotos\salada-pantaneira.png" />
+    <Content Include="Content\fotos\doces-pantaneiro.png" />
+    <Content Include="Content\fotos\petit-gateau.jpg" />
+    <Content Include="Content\fotos\sufle-de-limao.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -245,7 +257,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>17357</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

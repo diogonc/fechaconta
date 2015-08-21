@@ -60,6 +60,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+   .state('tab.confirmar', {
+      url: '/confirmar',
+      views: {
+        'tab-confirmar': {
+          templateUrl: 'templates/tab-confirmar.html',
+          controller: 'ConfirmarCtrl'
+        }
+      }
+    })
+
   .state('tab.menu', {
       url: '/menu',
       views: {
