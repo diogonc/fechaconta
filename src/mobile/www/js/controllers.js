@@ -6,6 +6,7 @@ angular.module('starter.controllers', [])
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
   $scope.$on('$ionicView.enter', function(e) {
+      
       $http.get(homeUrl+'api/cardapio').success(function(data){
         console.log(data);
         $scope.itens = data;
@@ -14,8 +15,16 @@ angular.module('starter.controllers', [])
 
   $scope.categoriaSelecionada = 1;
 
-  $scope.alterarCategoria = function(indiceDaategoria){
-    $scope.categoriaSelecionada = indiceDaategoria;
+  $scope.alterarCategoria = function(indiceDaCategoria){
+    $scope.categoriaSelecionada = indiceDaCategoria;
+  }
+
+  $scope.selecionarItem = function(indiceDoitem){
+    var produto = $scope.itens.Categorias[$scope.categoriaSelecionada].Itens[indiceDoitem];
+    produto.Selecionado = true;
+
+
+    $scope.pedido.push({produto: produto, quantidade:1});
   }
 })
 
@@ -28,3 +37,11 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 });
+
+
+var pedido = function(numeroDoPedido){
+  var self = this;
+  self.numeroDoPedido = numeroDoPedido
+
+
+}
