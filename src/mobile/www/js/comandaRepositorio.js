@@ -1,27 +1,29 @@
 angular.module("starter.services", [])
 .factory("ComandaRepository", function(){
-	var comandaRepository = new Repository('comanda', storage);
+	var repository = new Repository('comanda', storage);
 				
 	return {
-		getAll: comandaRepository.getAll,
-		save: comandaRepository.save,
+		getAll: repository.getAll,
+		save: repository.save,
 		get: function () { 
-			var itens = comandaRepository.getAll();
+			var itens = repository.getAll();
 			return  itens[itens.length -1];
 		},
-		delete: comandaRepository.delete
+		delete: repository.delete,
+		limparDados: repository.limparDados
 	}
 })
 .factory("PedidoRepository", function(){
-	var pedidoRepository = new Repository('pedido', storage);
+	var repository = new Repository('pedido', storage);
 				
 	return {
-		getAll: pedidoRepository.getAll,
-		save: pedidoRepository.save,
+		getAll: repository.getAll,
+		save: repository.save,
 		get: function () { 
-			var pedidos = pedidoRepository.getAll();
+			var pedidos = repository.getAll();
 			return  pedidos[pedidos.length -1];
 		},
-		delete: pedidoRepository.delete
+		delete: repository.delete,
+		limparDados: repository.limparDados
 	}
 });

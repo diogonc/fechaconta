@@ -12,19 +12,8 @@ var Repository = function (keyName, storage) {
   };
 
   self.save = function (item) {
-    var itemToAdd = copy(item);
-    var itens = self.getAll();
-    itemToAdd.changed = true;
-    if (typeof itemToAdd.guid === 'undefined') {
-      itemToAdd.guid = generateGuid();
-      itens.push(itemToAdd);
-    }
-    else {
-      var index = findIndex(itemToAdd.guid);
-      itens.splice(index, 1, itemToAdd);
-    }
-    storage.setItem(self.key, itens);
-    return copy(itemToAdd);
+    storage.setItem(self.key, item);
+    return copy(item);
   };
 
   self.changeId = function (guid, id) {
@@ -48,6 +37,10 @@ var Repository = function (keyName, storage) {
       storage.setItem(self.key, itens);
     }
   };
+
+  self.limparDados = function(){
+    storage.setItem(self.key, []);
+  }
 
   self.get = function (guid) {
     var itens = self.getAll();

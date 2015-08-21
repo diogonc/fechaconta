@@ -29,8 +29,8 @@ namespace Fechaconta.WebApp.Controllers
             cardapio.Adicionar("Saladas", "Salada de Pantaneira", "Filé cortado finim acompanhado de Minirrúculas, Parmessão e Alho.", 9.10, "salada-pantaneira.png");
 
 
-            cardapio.Adicionar("Sobremesas", "Surpresa de Limão", "Sufle de Limão com raspas de chocolate.", 5.10, "sufle-de-limao.jpg");
-            cardapio.Adicionar("Sobremesas", "Petit gâteau", "Doce de Leite, Chocollate em Barras com Sorvete.", 5.10, "petit-gateau.jpg");
+            cardapio.Adicionar("Sobremesas", "Surpresa de Limão", "Sufle de Limão com raspas de chocolate.", 5.10, "sufle-de-limao.png");
+            cardapio.Adicionar("Sobremesas", "Petit gâteau", "Doce de Leite, Chocollate em Barras com Sorvete.", 5.10, "petit-gateau.png");
             cardapio.Adicionar("Sobremesas", "Doces Pantaneiro", "Queijo caipira fresco com Goiabada.", 9.66, "doces-pantaneiro.png");
 
             cardapio.Adicionar("Bebidas", "Skol", "Aquela que desce redondo.", 4.5, "skol-garafa.png");
