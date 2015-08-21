@@ -1,4 +1,5 @@
 ﻿using Fechaconta.WebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -43,7 +44,7 @@ namespace Fechaconta.WebApp.Controllers
             var item = categoria.Itens.FirstOrDefault(i => i.Nome == nomeDoItem);
             if (item == null)
             {
-                item = new Item { Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem };
+                item = new Item { Id = Guid.NewGuid(), Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem };
                 categoria.Itens.Add(item);
             }
         }
