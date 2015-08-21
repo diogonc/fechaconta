@@ -1,5 +1,11 @@
 <ion-view view-title="Mesa">
   <ion-content style="color:#fff">
-  asdfhasdlkjfhaslkj dflkjasdh flkjashfdjlksadfhaskljdf hf
-    </ion-content>  
+  		<div class="list">
+		  <label class="item item-input item-floating-label">
+		    <span class="input-label">Numero da mesa</span>
+		    <input type="text" placeholder="Numero da mesa" ng-model="mesa">
+		  </label>
+		  <button class="button button-block button-positive" ng-click="abrirComanda(mesa)">Abrir comanda</button>		  
+		</div>
+   </ion-content>  
 </ion-view>

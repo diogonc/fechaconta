@@ -3,13 +3,16 @@
 	padding: 0;
 }
 
+input, select, textarea{
+    color: #fff !important;
+}
+
 body#body{
 	background: url(../img/bg.jpg);
 	position: fixed;
 	font-family: 'Courgette', cursive;
 
 }
-
 .oculto{
 	display: none !important;
 }
