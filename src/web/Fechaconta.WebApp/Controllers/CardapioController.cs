@@ -24,7 +24,30 @@ namespace Fechaconta.WebApp.Controllers
         {
             var cardapio = new Cardapio();
 
-            //var bolinhoDeFeijoada = new Item() { Nome}
+            var categorias = new List<Categoria>();
+
+            var bolinhos = new Categoria();
+
+            var bolinhoDeFeijoada = new Item() {
+                Nome = "Bolinho de Feijoada",
+                Descricao = "Recheado com couve e bacon.",
+                Valor = 7.56
+            };
+            var bolinhoDeComitiva = new Item()
+            {
+                Nome = "Bolinho de Comitiva",
+                Descricao = "Bolinho de arroz com carne de sol e queijo coalho.",
+                Valor = 11.00
+            };
+
+            var itensDaCategoriaBolinhos = new List<Item>();
+            itensDaCategoriaBolinhos.Add(bolinhoDeFeijoada);
+            itensDaCategoriaBolinhos.Add(bolinhoDeComitiva);
+            bolinhos.Itens = itensDaCategoriaBolinhos;
+
+            categorias.Add(bolinhos);
+
+            cardapio.Categorias = categorias;
 
             return cardapio;
         }
