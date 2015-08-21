@@ -4,22 +4,59 @@ angular.module('starter.controllers', [])
   var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
   $scope.abrirComanda = function(mesa){
-       $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
-        var pedido = new Pedido(numeroDaComanda, mesa);
-        PedidoRepository.save(pedido);
-        $state.go('tab.menu');
-      });
-    }
+   $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
+    var pedido = new Pedido(numeroDaComanda, mesa);
+    PedidoRepository.save(pedido);
+    $state.go('tab.menu');
+  });
+ }
 })
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('ConfirmarCtrl', function($scope, PedidoRepository) {
+.controller('ConfirmarCtrl', function($scope, $http, PedidoRepository) {
 
-    $scope.$on('$ionicView.enter', function(e) {
-        $scope.pedido = PedidoRepository.getAll()[0];
-        console.log($scope.pedido);
+  $scope.$on('$ionicView.enter', function(e) {
+    $scope.pedido = PedidoRepository.get();
+    console.log($scope.pedido);
+  });
+
+  $scope.confirmar = function(){
+    
+    var homeUrl = 'http://fechaconta.azurewebsites.net/';
+
+
+    var pedido = {
+      NumeroDaComanda: 'sample string 1',
+      ItensDoPedido: [
+      {
+        Item: {
+          Id: '00d35519-234f-4878-bd5e-6dfdb5ba8d3c',
+          Nome: 'sample string 2',
+          Descricao: 'sample string 3',
+          Valor: 4.1,
+          NomeDaImagem: 'sample string 5'
+        },
+        Quantidade: 1,
+        Valor: 4.1
+      }      
+      ]
+    };
+
+    var req = {
+      method: 'POST',
+      url: homeUrl + 'api/pedido',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: pedido
+    };
+
+    $http.post(req).success(function(){          
+      PedidoRepository.delete();
+      $state.go('tab.menu');
     });
+  };
 })
 
 .controller('MenuCtrl', function($scope, $http, PedidoRepository, $state) {
@@ -27,14 +64,14 @@ angular.module('starter.controllers', [])
   var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
-      $http.get(homeUrl+'api/cardapio').success(function(data){
-        $scope.itens = data;      
-        inicializarQuantidade();
-      });
-      comanda = PedidoRepository.getAll()[0];
-      $scope.mesa = comanda.mesa;
-      pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
-      
+    $http.get(homeUrl+'api/cardapio').success(function(data){
+      $scope.itens = data;      
+      inicializarQuantidade();
+    });
+    comanda = PedidoRepository.get();
+    $scope.mesa = comanda.mesa;
+    pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
+    
   });
 
   $scope.categoriaSelecionada = 0;
@@ -52,7 +89,7 @@ angular.module('starter.controllers', [])
   $scope.removerItem = function(item){
     pedido.remover(item);
     if(item.quantidade > 0) {
-        item.quantidade -= 1;
+      item.quantidade -= 1;
     }
   };
 
@@ -62,14 +99,14 @@ angular.module('starter.controllers', [])
   };
 
   function inicializarQuantidade() {
-      console.log('foi', $scope.itens);
-      
-     for (var i = 0; i < $scope.itens.Categorias.length; i++) {
-         var categoria= $scope.itens.Categorias[i];
-         for (var j = 0; j < categoria.Itens.length; j++) {
-            categoria.Itens[j].quantidade = 0;
-         }
-     }
- };
-      
+    console.log('foi', $scope.itens);
+    
+    for (var i = 0; i < $scope.itens.Categorias.length; i++) {
+     var categoria= $scope.itens.Categorias[i];
+     for (var j = 0; j < categoria.Itens.length; j++) {
+      categoria.Itens[j].quantidade = 0;
+    }
+  }
+};
+
 });
