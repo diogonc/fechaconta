@@ -2,7 +2,7 @@
   <ion-content >
     <div class="logo">FechaConta</div>
     <div class="numero-mesa">
-      <div class="texto">Mesa: {{mesa}}</div>
+      <div class="texto">Mesa: {{pedido.mesa}}</div>
     </div>
     <div class="tabs">
       <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
