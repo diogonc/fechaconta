@@ -122,7 +122,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\fotos\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -177,6 +176,18 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fotos\bebidas\antartica-original.png" />
+    <Content Include="Content\fotos\bebidas\brahma-garafa.jpg" />
+    <Content Include="Content\fotos\bebidas\skol-garafa.png" />
+    <Content Include="Content\fotos\bolinhos\bolinho-carne-sol.jpg" />
+    <Content Include="Content\fotos\bolinhos\bolinho-comitiva.jpg" />
+    <Content Include="Content\fotos\bolinhos\bolinho-feijoada.jpg" />
+    <Content Include="Content\fotos\saladas\salada-carrapicho.jpg" />
+    <Content Include="Content\fotos\saladas\salada-cezinha.jpg" />
+    <Content Include="Content\fotos\saladas\salada-pantaneira.jpg" />
+    <Content Include="Content\fotos\sobremesa\doces-pantaneiro.png" />
+    <Content Include="Content\fotos\sobremesa\petit-gateau.jpg" />
+    <Content Include="Content\fotos\sobremesa\sufle-de-limao.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -246,7 +257,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>17357</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
