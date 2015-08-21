@@ -29,7 +29,7 @@ angular.module('starter.controllers', [])
       pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
   });
 
-  $scope.categoriaSelecionada = 1;
+  $scope.categoriaSelecionada = 0;
 
   $scope.alterarCategoria = function(indiceDaCategoria){
     $scope.categoriaSelecionada = indiceDaCategoria;

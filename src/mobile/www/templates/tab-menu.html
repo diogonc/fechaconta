@@ -5,12 +5,12 @@
       <div class="texto">Mesa: {{mesa}}</div>
     </div>
     <div class="tabs">
-      <a class="categoria tab-item" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
+      <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
         {{categoria.Nome}}
       </a>
     </div>
     <ion-list id="listaProdutos">
-      <ion-item class="itens item-remove-animate item-icon-right" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
+      <ion-item class="itens item-remove-animate" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
         <img class="img-pratos" src="img/img1.jpg" alt="">
 
         <div class="informacoes">

@@ -12,17 +12,19 @@ var Pedido = function (numeroDoPedido, mesa) {
 			self.itens.push({produto: itemParaAdicionar, quantidade: 1});
 		else
 			self.itens[indice].quantidade += 1;
-		console.log(self.itens);
 	}
 
 	self.remover = function(itemParaRemover){
 		var indice = findById(self.itens, itemParaRemover.Id);
 		
-		if(indice < 0 )
-			self.itens.itens.splice(indice, 1);
-		else
-			self.itens[indice].quantidade -= 1;
-		console.log(self.itens);
+		if(indice >= 0 )
+		{
+			var item = self.itens[indice];
+			item.quantidade -= 1;
+			
+			if(item.quantidade === 0)
+				self.itens.splice(indice, 1);
+		}
 	}
 }
 
