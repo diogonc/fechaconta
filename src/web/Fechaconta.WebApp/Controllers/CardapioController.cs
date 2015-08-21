@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Fechaconta.WebApp.Models;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using Fechaconta.WebApp.Models;
 
 namespace Fechaconta.WebApp.Controllers
 {
@@ -23,12 +20,12 @@ namespace Fechaconta.WebApp.Controllers
         public static Cardapio Criar()
         {
             var cardapio = new Cardapio();
-
             var categorias = new List<Categoria>();
 
             var bolinhos = new Categoria();
 
-            var bolinhoDeFeijoada = new Item() {
+            var bolinhoDeFeijoada = new Item()
+            {
                 Nome = "Bolinho de Feijoada",
                 Descricao = "Recheado com couve e bacon.",
                 Valor = 7.56
@@ -50,6 +47,31 @@ namespace Fechaconta.WebApp.Controllers
             cardapio.Categorias = categorias;
 
             return cardapio;
+        }
+    }
+
+    public static class CardapioExtensions
+    {
+        public static void Adicionar(this Cardapio cardapio, string nomeDaCategoria, string nomeDoItem, string descricaoDoItem, double valorDoItem)
+        {
+            var categoria = cardapio.Categorias.FirstOrDefault(c => c.Nome == nomeDaCategoria);
+            if (categoria == null)
+            {
+                categoria = new Categoria() { Nome = nomeDaCategoria, Itens = new List<Item>() };
+                cardapio.Categorias.Add(categoria);
+            }
+
+            var item = categoria.Itens.FirstOrDefault();
+            if (item == null)
+            {
+                item = new Item()
+                {
+                    Nome = nomeDoItem,
+                    Descricao = descricaoDoItem,
+                    Valor = valorDoItem
+                };
+                categoria.Itens.Add(item);
+            }
         }
     }
 }
