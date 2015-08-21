@@ -3,6 +3,10 @@
 	padding: 0;
 }
 
+.tab-nav {
+    display: none;
+}
+
 input, select, textarea{
     color: #fff !important;
 }
