@@ -11,8 +11,7 @@
     </div>
     <ion-list id="listaProdutos">
       <ion-item class="itens item-remove-animate" ng-repeat="item in itens.Categorias[categoriaSelecionada].Itens" type="item-text-wrap">
-        <img class="img-pratos" src="img/img1.jpg" alt="">
-
+        <img class="img-pratos" ng-src="http://fechaconta.azurewebsites.net/content/fotos/{{item.NomeDaImagem}}" alt="">
         <div class="informacoes">
           <div class="descricoes">
               <div class="titulo">{{item.Nome}}</div>
