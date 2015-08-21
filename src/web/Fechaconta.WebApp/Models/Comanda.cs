@@ -5,6 +5,7 @@ namespace Fechaconta.WebApp.Models
     public class Comanda
     {
         public string Numero { get; set; }
+        public int NumeroDaMesa { get; set; }
         public List<Pedido> Pedidos { get; set; }
 
         public Comanda()
