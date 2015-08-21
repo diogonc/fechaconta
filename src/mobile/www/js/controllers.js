@@ -2,12 +2,14 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('MenuCtrl', function($scope, Cardapio) {
+.controller('MenuCtrl', function($scope, $http) {
+ 
   $scope.$on('$ionicView.enter', function(e) {
+      $http.get('http://fechaconta.azurewebsites.net/api/cardapio').success(function(data){
+        console.log(data);
+        $scope.itens = data;
+      });
   });
-
-  $scope.itens = Cardapio.all();
-
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
