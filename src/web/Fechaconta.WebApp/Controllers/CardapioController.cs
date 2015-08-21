@@ -22,7 +22,10 @@ namespace Fechaconta.WebApp.Controllers
             var cardapio = new Cardapio();
             var categorias = new List<Categoria>();
 
-            var bolinhos = new Categoria();
+            var bolinhos = new Categoria()
+            {
+                Nome = "Bolinhos"
+            };
 
             var bolinhoDeFeijoada = new Item()
             {
@@ -43,6 +46,31 @@ namespace Fechaconta.WebApp.Controllers
             bolinhos.Itens = itensDaCategoriaBolinhos;
 
             categorias.Add(bolinhos);
+
+            var bebidas = new Categoria()
+            {
+                Nome = "Bebidas"
+            };
+
+            var skol = new Item()
+            {
+                Nome = "Skol",
+                Descricao = "Bem geladinha.",
+                Valor = 2.50
+            };
+            var antartica = new Item()
+            {
+                Nome = "Antartica",
+                Descricao = "Mais geladinha ainda.",
+                Valor = 3.00
+            };
+
+            var itensDaCategoriaBebidas = new List<Item>();
+            itensDaCategoriaBebidas.Add(bolinhoDeFeijoada);
+            itensDaCategoriaBebidas.Add(bolinhoDeComitiva);
+            bebidas.Itens = itensDaCategoriaBebidas;
+
+            categorias.Add(bebidas);
 
             cardapio.Categorias = categorias;
 
