@@ -2,19 +2,21 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope) {})
 
-.controller('MenuCtrl', function($scope, Chats) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+.controller('MenuCtrl', function($scope, $http) {
+  var homeUrl = 'http://fechaconta.azurewebsites.net/';
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  $scope.$on('$ionicView.enter', function(e) {
+      $http.get(homeUrl+'api/cardapio').success(function(data){
+        console.log(data);
+        $scope.itens = data;
+      });
+  });
+
+  $scope.categoriaSelecionada = 1;
+
+  $scope.alterarCategoria = function(indiceDaategoria){
+    $scope.categoriaSelecionada = indiceDaategoria;
+  }
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
