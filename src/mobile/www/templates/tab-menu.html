@@ -1,8 +1,8 @@
 <ion-view view-title="Menu" class="conteudo">
   <ion-content >
-    <div class="logo">Fecha Conta</div>
+    <div class="logo">FechaConta</div>
     <div class="numero-mesa">
-      <div class="texto">Mesa: {{mesa}}</div>
+      <div class="texto">Mesa: {{pedido.mesa}}</div>
     </div>
     <div class="tabs">
       <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
@@ -26,7 +26,7 @@
         </div>       
       </ion-item>
     </ion-list>
-    <button class="button button-block button-amarelo">
+    <button class="button button-block button-amarelo" ng-click="fazerPedido()">
       fazer pedido
     </button>
   </ion-content>  
