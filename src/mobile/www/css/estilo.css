@@ -10,6 +10,10 @@ body#body{
 
 }
 
+.oculto{
+	display: none !important;
+}
+
 .itens{
 	background: rgba(0, 0, 0, 0.8);
 	margin: 20px 10px;
