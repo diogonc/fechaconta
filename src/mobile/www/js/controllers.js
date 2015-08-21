@@ -27,7 +27,7 @@ angular.module('starter.controllers', [])
       });
   });
 
-  $scope.categoriaSelecionada = 1;
+  $scope.categoriaSelecionada = 0;
 
   $scope.alterarCategoria = function(indiceDaCategoria){
     $scope.categoriaSelecionada = indiceDaCategoria;
