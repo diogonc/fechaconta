@@ -50,17 +50,27 @@ input{
 
 
 #paginaInicial{
-	text-align: center;
+	position: absolute;
+    top: 20%;
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+    color: #fff;
+}
+
+.conteudo{
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
 #paginaInicial .logo{
 	text-align: center;
     display: block;
-    margin-top: 45px;
+    margin-top: 31px;
+    font-size: 46px;
 }
 
 #paginaInicial .chamada-logo{
-
+	    font-size: 20px;
 }
 
 #paginaInicial .item{
@@ -69,12 +79,32 @@ input{
 
 #paginaInicial input{
 	border-bottom: 1px solid #fff;
-
-}
-
-#paginaInicial input-label{
 	color: #fff;
 }
+
+#paginaInicial label{
+	color: #fff;
+}
+
+
+::-webkit-input-placeholder {
+   color: #fff;
+}
+
+:-moz-placeholder {
+   color: #fff;
+}
+
+::-moz-placeholder {
+   color: #fff;
+}
+
+:-ms-input-placeholder {  
+   color: #fff;
+}
+
+
+
 
 .numero-mesa{
 	display: inline-block;
