@@ -1,7 +1,16 @@
 angular.module('starter.controllers', [])
 
-.controller('MesaCtrl', function($scope) {
-    $scope.test = "sfafdsa";
+.controller('MesaCtrl', function($scope, $http, PedidoRepository) {
+  var homeUrl = 'http://fechaconta.azurewebsites.net/';
+  $scope.test = "sfafdsa";
+
+
+    $scope.abrirComanda = function(mesa){
+       $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(data){
+        var pedido = new Pedido(data);
+        PedidoRepository.save(pedido);
+      });
+    }
 })
 
 .controller('ComandaCtrl', function($scope) {})
