@@ -18,7 +18,7 @@
               <div class="titulo">{{item.Nome}}</div>
               <div class="descricao">{{item.Descricao}}</div>
           </div>            
-          <div class="valor">R$ {{item.Valor}}</div>
+          <div class="valor">R$ {{item.Valor | number:2}}</div>
         </div>  
         <label class="checkbox">
           <input type="checkbox">
