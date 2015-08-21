@@ -12,7 +12,7 @@ namespace Fechaconta.WebApp.Controllers
             var comanda = ComandaRepositorio.BuscarPor(pedido.NumeroDaComanda);
             if (comanda == null)
             {
-                comanda = new Comanda { Numero = pedido.NumeroDaComanda };
+                comanda = new Comanda { Numero = pedido.NumeroDaComanda, NumeroDaMesa = pedido.NumeroDaMesa };
                 ComandaRepositorio.Adicionar(comanda);
             }
             comanda.Adicionar(pedido);

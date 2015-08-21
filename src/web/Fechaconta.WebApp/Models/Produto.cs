@@ -2,7 +2,7 @@
 
 namespace Fechaconta.WebApp.Models
 {
-    public class Item
+    public class Produto
     {
         public Guid Id { get; set; }
         public string Nome { get; set; }

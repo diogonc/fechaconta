@@ -48,14 +48,14 @@ namespace Fechaconta.WebApp.Controllers
             var categoria = cardapio.Categorias.FirstOrDefault(c => c.Nome == nomeDaCategoria);
             if (categoria == null)
             {
-                categoria = new Categoria { Nome = nomeDaCategoria, Itens = new List<Item>() };
+                categoria = new Categoria { Nome = nomeDaCategoria, Itens = new List<Produto>() };
                 cardapio.Categorias.Add(categoria);
             }
 
             var item = categoria.Itens.FirstOrDefault(i => i.Nome == nomeDoItem);
             if (item == null)
             {
-                item = new Item { Id = Guid.NewGuid(), Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem, NomeDaImagem =  nomedaImagem};
+                item = new Produto { Id = Guid.NewGuid(), Nome = nomeDoItem, Descricao = descricaoDoItem, Valor = valorDoItem, NomeDaImagem = nomedaImagem };
                 categoria.Itens.Add(item);
             }
         }

@@ -2,12 +2,8 @@
 {
     public class ItemDoPedido
     {
-        public Item Item { get; set; }
+        public Produto Produto { get; set; }
         public int Quantidade { get; set; }
-
-        public double Valor 
-        {
-            get { return Item.Valor * Quantidade; }
-        }
+        public double ValorTotal { get; set; }
     }
 }
