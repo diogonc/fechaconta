@@ -36,16 +36,21 @@ input{
     margin: 10px;
     width: 95% !important;
 }
-
+.button-amarelo:hover{
+	color: #fff;
+}
 
 .button-marrom{
 	background: #5D3836;
     border-color: #492827;
-    color: #2a2a2a;
     color: #9D8E8E;
     margin: 10px;
     width: 95% !important;
 }
+.button-marrom:hover{
+	color: #fff;
+}
+
 
 .botao-pedido{
 	position: fixed;
@@ -164,11 +169,14 @@ input{
 	position: inherit;
 	background: rgba(17,17,17,.8) !important;
 	color: #fff;
+	
 }
 
 .tabs a.categoria{
+	font-family: 'Lobster', cursive;
 	margin: 3px;
 	color: #fff;
+	font-size: 16px;
 }
 
 .tabs .ativo{
@@ -354,7 +362,7 @@ input{
 }
 
 #confirmaComanda  .informacoes .excluir{
- 	font-size: 16px;
+ 	font-size: 18px;
  	text-align: right;
 }
 
@@ -377,6 +385,10 @@ input{
 	text-align: right;
 	font-size: 18px;
 	margin: 10px;
+}
+
+.nomeDoProd{
+	width: 75%;
 }
 
 .valorTotalComanda span{

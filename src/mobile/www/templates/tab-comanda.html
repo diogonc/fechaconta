@@ -11,13 +11,11 @@
               <div class="titulo">Pedido {{$index + 1}}</div>
           </div> 
           <ul>
-          	<li ng-repeat="item in pedido.ItensDoPedido">
-  				<div class="quantidade-item">
-	  				<div class="texto">qtd: {{item.Quantidade}}</div>
-	  				<div class="texto">{{item.Produto.Nome}}</div>
-	  				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
-  					<div class="valorTotal">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
-	  			</div>	
+         	<li ng-repeat="item in pedido.ItensDoPedido">
+  				<div class="quantidade-item">qtd: {{item.Quantidade}}</div>
+  				<div class="texto nomeDoProd">{{item.Produto.Nome}}</div>
+  				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
+				<div class="valorTotal">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
           	</li>
           </ul>
         </div>
