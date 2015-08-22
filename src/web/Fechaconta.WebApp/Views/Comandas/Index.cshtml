@@ -13,17 +13,17 @@
 </div>
 <table id="relacaoDeComanda">
     <thead class="lista">
-        <tr class="margin-bottom">
-            <th>Comanda</th>
-            <th>Mesa</th>
-            <th>Status</th>
-            <th>Total</th>
-        </tr>
+    <tr class="margin-bottom">
+        <th>Comanda</th>
+        <th>Mesa</th>
+        <th>Status</th>
+        <th>Total</th>
+    </tr>
     </thead>
 
     @foreach (var comanda in Model)
     {
-        <tr class="visualizacao-da-lista">
+        <tr class="visualizacao-da-lista" onclick="toggle('@comanda.Numero')">
             <td class="borda">@comanda.Numero</td>
             <td class="borda">@comanda.NumeroDaMesa</td>
             <td class="borda">@comanda.Status</td>
@@ -31,26 +31,26 @@
         </tr>
 
         <tr>
-            <td colspan="4">
+            <td colspan="4" id="@comanda.Numero" class="oculto" >
                 <table class="visualizacao-comanda">
                     <thead>
-                        <tr>
-                            <th class="width41">Produto</th>
-                            <th class="width15">Quantidade</th>
-                            <th class="width35">Valor por item</th>
-                            <th class="width35">Sub-Total</th>
-                        </tr>
+                    <tr>
+                        <th class="width41">Produto</th>
+                        <th class="width15">Quantidade</th>
+                        <th class="width35">Valor por item</th>
+                        <th class="width35">Sub-Total</th>
+                    </tr>
                     </thead>
                     <tbody class="itens-da-comanda">
-                        @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
-                        {
-                            <tr>
-                                <td>@itemDoPedido.Produto.Nome</td>
-                                <td>@itemDoPedido.Quantidade</td>
-                                <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
-                                <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
-                            </tr>
-                        }
+                    @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
+                    {
+                        <tr>
+                            <td>@itemDoPedido.Produto.Nome</td>
+                            <td>@itemDoPedido.Quantidade</td>
+                            <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
+                            <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
+                        </tr>
+                    }
                     </tbody>
                 </table>
             </td>
@@ -58,3 +58,8 @@
     }
 
 </table>
+<script>
+    function toggle(comandaNumero) {
+        $("#" + comandaNumero).slideToggle();
+    }
+</script>
