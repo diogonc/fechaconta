@@ -33,8 +33,8 @@
       </label>
       <span class="valor-do-troco">O seu troco será:  R$ {{ troco() | number: 2}}</span>
     </div>
-    <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo" ng-click="solicitarFechamento()">solicitar fechamento</button>
-    <button id="fechaConta" ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">FechaConta</button>
+    <button ng-show="mostraFinalizarPedido()" class="fechaConta button button-block button-amarelo" ng-click="solicitarFechamento()">FechaConta</button>
+    <button ng-show="mostraFecharPedido()" class="fechaConta button button-block button-amarelo" ng-click="fecharConta()">FechaConta</button>
     <button ng-hide="mostraComandaFechada" class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>
 </ion-view>
