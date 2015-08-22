@@ -1,5 +1,5 @@
 <ion-view view-title="Comanda">
-   <ion-content id="confirmaComanda">
+   <ion-content id="visualizacaoComanda">
     <div class="logo">FechaConta</div>
     <div class="numero-mesa">
       <div class="texto">Mesa: {{comanda.NumeroDaMesa}}</div>
@@ -24,6 +24,6 @@
     </ion-list>
     <div class="titulo">TOTAL DA COMANDA: R$ {{comanda.Total | number:2}}</div>
     <button class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
-    <button class="button button-block button-amarelo" ng-click="voltar()">voltar</button>
+    <button class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>
 </ion-view>

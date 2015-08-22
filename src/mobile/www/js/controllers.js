@@ -17,19 +17,20 @@ angular.module('starter.controllers', [])
 
 .controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
   $scope.$on('$ionicView.enter', function(e) {
+    
     var comanda = ComandaRepository.get();
-    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){      
-      $scope.comanda = comanda;
-    });
+    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){
+      $scope.comanda = comanda;      
+    });   
+  });
 
-    $scope.voltar = function(){
-      $state.go('tab.menu');
-    }
+  $scope.voltar = function(){
+    $state.go('tab.menu');
+  };
 
-    $scope.fecharConta = function(){
+  $scope.fecharConta = function(){
 
-    }
-  });  
+  };
 })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
@@ -44,13 +45,24 @@ angular.module('starter.controllers', [])
 
   $scope.confirmar = function(){
     
-		$http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){      
-			
-			PedidoRepository.limparDados();
-			$state.go('tab.comanda');
-    });
-
+    $http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){      
+     
+     PedidoRepository.limparDados();
+     $state.go('tab.comanda');
+   });
   };
+
+  $scope.excluirItem = function(item){
+    removerItenDoPedido(item);
+  }
+
+  function removerItenDoPedido(itemParaRemover){
+    var indice = findById($scope.pedido.itens, itemParaRemover.Id);
+    $scope.pedido.itens.splice(indice, 1);
+
+    if($scope.pedido.itens.length == 0)
+      $state.go('tab.menu');   
+  }
 })
 
 .controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
