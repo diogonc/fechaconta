@@ -74,7 +74,12 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('VolteSempreCtrl', function($scope) {})
+.controller('VolteSempreCtrl', function($scope) {
+  setTimeout(function(){ 
+    ionic.Platform.exitApp();
+   }, 5000);
+  
+})
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
   $scope.pedido = [];
