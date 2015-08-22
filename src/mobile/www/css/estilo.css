@@ -431,7 +431,7 @@ input{
     color: #fff;
 }
 
-#fechaConta{
+.fechaConta{
 	font-family: 'Lobster', cursive;	
 	font-size: 21px;
 }
