@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
-  $scope.trocoPara;
+  $scope.trocoPara = {valor: ''};
   $scope.comanda = {Total: 0};
   $scope.$on('$ionicView.enter', function(e) {
     $scope.estado = 'aberta';
@@ -27,8 +27,7 @@ angular.module('starter.controllers', [])
   });
 
   $scope.troco = function (){
-    console.log($scope.trocoPara, $scope.comanda.Total);
-    return $scope.trocoPara - $scope.comanda.Total;
+    return $scope.trocoPara.valor - $scope.comanda.Total;
   }
 
   $scope.voltar = function(){

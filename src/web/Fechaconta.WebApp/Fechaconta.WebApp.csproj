@@ -165,6 +165,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ComandaController.cs" />
+    <Compile Include="Controllers\ComandasController.cs" />
     <Compile Include="Models\Comanda.cs" />
     <Compile Include="Models\ComandaRepositorio.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -241,6 +242,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Comandas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

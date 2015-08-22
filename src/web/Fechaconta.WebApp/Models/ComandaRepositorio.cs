@@ -12,6 +12,11 @@ namespace Fechaconta.WebApp.Models
             return Comandas.FirstOrDefault(c => c.Numero == numeroDaComanda);
         }
 
+        public static IEnumerable<Comanda> BuscarTodas()
+        {
+            return Comandas.OrderBy(c => c.Status);
+        }
+
         public static void Adicionar(Comanda comanda)
         {
             Comandas.Add(comanda);
