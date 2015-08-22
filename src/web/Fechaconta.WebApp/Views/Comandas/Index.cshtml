@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Fechaconta.WebApp.Models.Comanda>
+@{
+    ViewBag.Title = "Relação de Comandas";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table>
+
+    <tr>
+        <th>Comanda</th>
+        <th>Mesa</th>
+        <th>Status</th>
+        <th>Total</th>
+    </tr>
+    @foreach (var comanda in Model)
+    {
+        <tr>
+            <td>@comanda.Numero</td>
+            <td>@comanda.NumeroDaMesa</td>
+            <td>@comanda.Status</td>
+            <td>@comanda.Total.ToString("C")</td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <table>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade</th>
+                        <th>Sub-Total</th>
+                    </tr>
+                    @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
+                    {
+                        <tr>
+                            <td>@itemDoPedido.Produto.Nome</td>
+                            <td>@itemDoPedido.Quantidade</td>
+                            <td>@itemDoPedido.ValorTotal.ToString("C")</td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+
+</table>
