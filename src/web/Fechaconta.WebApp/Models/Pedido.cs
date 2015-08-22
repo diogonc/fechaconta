@@ -7,11 +7,8 @@ namespace Fechaconta.WebApp.Models
     {
         public string NumeroDaComanda { get; set; }
         public int NumeroDaMesa { get; set; }
-        public List<ItemDoPedido> ItensDoPedido { get; set; }
+        public double Valor { get { return ItensDoPedido.Sum(item => item.ValorTotal); } }
 
-        public double Valor()
-        {
-            return ItensDoPedido.Sum(i => i.ValorTotal);
-        }
+        public List<ItemDoPedido> ItensDoPedido { get; set; }
     }
 }
