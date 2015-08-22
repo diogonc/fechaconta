@@ -7,7 +7,9 @@ namespace Fechaconta.WebApp.Models
     {
         public string Numero { get; set; }
         public int NumeroDaMesa { get; set; }
+        public bool Fechada { get; set; }
         public double Total { get { return Pedidos.Sum(pedido => pedido.Valor); } }
+        public string Status { get { return Fechada ? "Fechada" : "Aberta"; } }
 
         public List<Pedido> Pedidos { get; set; }
 
