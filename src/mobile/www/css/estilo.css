@@ -63,8 +63,8 @@ input{
 
 .logo{
 	color: #ffb606;
-    font-size: 21px;
-    margin: 15px;
+    font-size: 19px;
+    margin: 15px 6px;
     display: inline-block;
     vertical-align: top;
 }
@@ -135,12 +135,11 @@ input{
     vertical-align: top;
     width: 29%;
     margin: 12px 9px;
-    float: right;
-    text-align: right;
+    text-align: center;
 }
 
 	.numero-mesa .texto{
-		font-size: 20px;
+		font-size: 18px;
 	    color: #fff;
 	    display: inline-block;
 	    vertical-align: top;
@@ -157,7 +156,21 @@ input{
 		color: #fff;
 		    text-align: center;
 	}
-..tabs-top {
+
+.minha-comanda{
+	color: #fff;
+	font-size: 15px;
+	display: inline-block;
+    vertical-align: top;
+    margin: 12px 7px 12px 0;
+    float: right;
+    text-align: center;
+    background-color: #5D3836;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.tabs-top {
 	display: none;
 	top: 0 !important;
 }
@@ -233,7 +246,7 @@ input{
 	vertical-align: top;
 	width: 22%;
     margin: 12px 0;
-        float: right;
+	text-align: right;
 }
 
 	.quantidade-item .texto{
@@ -269,15 +282,14 @@ input{
 .inseri-mais-produtos{
 	display: inline-block;
     vertical-align: top;
-    margin: 10px 0 10px 28px;
+    margin: 10px;
 }
 
 .botao-adicionar-remover{    
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
-
-
+    margin: 0 6px;
 }
 
 .ion-view{

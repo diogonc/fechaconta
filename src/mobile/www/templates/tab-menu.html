@@ -4,6 +4,7 @@
     <div class="numero-mesa">
       <div class="texto">Mesa: {{mesa}}</div>
     </div>
+    <div class="minha-comanda">Minha comanda</div> 
     <div class="tabs">
       <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
         {{categoria.Nome}}
@@ -18,13 +19,13 @@
               <div class="descricao">{{item.Descricao}}</div>
           </div> 
           <div class="valor">R$ {{item.Valor | number:2}}</div>
-          <div class="quantidade-item">
-            <div class="texto">qtd: {{item.quantidade}}</div>
-          </div>    
           <div class="inseri-mais-produtos">       
              <div class="botao-adicionar-remover" ng-click="adicionarItem(item)"><img src="img/add.png" alt=""><span></span></div> 
              <div class="botao-adicionar-remover" ng-click="removerItem(item)"><img src="img/excluir.png" alt=""></div> 
           </div>   
+          <div class="quantidade-item">
+            <div class="texto">qtd: {{item.quantidade}}</div>
+          </div>    
         </div>        
       </ion-item>
     </ion-list>
