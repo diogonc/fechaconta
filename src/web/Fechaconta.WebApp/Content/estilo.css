@@ -1,0 +1,151 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	font-family: 'Raleway', sans-serif;
+}
+
+.banner{
+	background: url(fotos/img-banner.jpg) center top;
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+
+.banner .info{
+	position: absolute;
+	margin: 0 auto;
+	top: 25%;
+	right: 40%;
+    left: 40%;
+    width: 500px;
+}
+
+.banner .logo{
+  font-family: 'Lobster', cursive;
+  color: #ffb606;
+  font-size: 95px;
+  margin: 15px 6px;
+      text-align: center;
+}
+
+.banner .texto{
+  font-family: 'Lobster', cursive;
+  color: #fff;
+  font-size: 45px;
+  margin: 15px 6px;
+      text-align: center;
+}
+
+h1{
+  	font-family: 'Lobster', cursive;
+	font-size: 45px;	
+}
+
+h2{
+  	font-family: 'Lobster', cursive;
+	font-size: 36px;	
+}
+
+
+.sobre{
+	margin: 45px 0;
+}
+.sobre h1{
+	text-align: center;
+	    margin-bottom: 20px;
+}
+
+.sobre iframe{
+	display: inline-block;
+	vertical-align: top;
+    margin: 0 35px 0 289px;
+    width: 28%;
+}
+
+.sobre .texto{
+	display: inline-block;
+	vertical-align: top;
+    width: 31%;
+    line-height: 30px;
+}
+
+.paralax{
+	background: url(fotos/parallax.jpg) center top;
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    padding: 23px 0;
+    background-size: 100%;
+    background-attachment: fixed;
+    background-position: bottom;
+    margin-bottom: 40px;
+}
+
+.paralax h2{
+	text-align: center;
+	color: #fff;
+	margin-top: 20px;
+}
+
+.paralax ul {
+	margin: 0;
+    background: rgba(17,17,17,.8);
+    overflow: hidden;
+    margin-top: 82px;
+
+}
+.paralax ul li {
+	float: left;
+    list-style-type: none;
+    text-align: center;
+    position: relative;
+    line-height: 16px;
+}
+
+.paralax ul li span{
+	text-decoration: none;
+    color: #fff;
+	padding: 10px 0;
+    display: block;
+    position: relative;
+}
+
+.beneficios h2{
+	text-align: center;
+	color: #000;
+}
+
+
+.beneficios h2 span{
+	text-align: center;
+	color: #F7B006;	
+}
+
+.beneficios ul{
+	width: 80%;
+	margin: 20px auto;
+	display: block;
+}
+
+.beneficios ul li {
+	width: 22%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 18px;
+	text-align: center;
+}
+
+.beneficios ul li .icone {}
+.beneficios ul li .texto {
+	color: #3f3f3f;
+	font-size: 20px;
+	margin-bottom: 8px;
+}
+.beneficios ul li .texto-explicativo {
+	font-size: 13px;
+	line-height: 18px;
+	color: #666666;
+}
