@@ -21,6 +21,7 @@ angular.module('starter.controllers', [])
     $scope.comanda = comanda;
     $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(data){
       $scope.itens = data;
+      console.log(data);
     });
 
     $scope.voltar = function(){
@@ -50,8 +51,19 @@ angular.module('starter.controllers', [])
 			PedidoRepository.limparDados();
 			$state.go('tab.comanda');
     });
-
   };
+
+  $scope.excluirItem = function(item){
+    removerItenDoPedido(item);
+  }
+
+  function removerItenDoPedido(itemParaRemover){
+    var indice = findById($scope.pedido.itens, itemParaRemover.Id);
+    $scope.pedido.itens.splice(indice, 1);
+
+    if($scope.pedido.itens.length == 0)
+      $state.go('tab.menu');   
+  }
 })
 
 .controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
