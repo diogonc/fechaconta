@@ -33,17 +33,18 @@
                     <tr>
                         <th class="width41">Produto</th>
                         <th class="width15">Quantidade</th>
-                        <th class="width35">Valor por item</th>
+                        <th class="width35">Valor Unitário</th>
                         <th class="width35">Sub-Total</th>
                     </tr>
                     </thead>
                     <tbody class="itens-da-comanda">
                     @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
                     {
+                        var valorUnitario = itemDoPedido.ValorTotal/itemDoPedido.Quantidade;
                         <tr>
                             <td>@itemDoPedido.Produto.Nome</td>
                             <td>@itemDoPedido.Quantidade</td>
-                            <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
+                            <td class="width35">@valorUnitario.ToString("C")</td>
                             <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
                         </tr>
                     }
