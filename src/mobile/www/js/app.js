@@ -74,6 +74,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+    .state('tab.volteSempre', {
+      url: '/volteSempre',
+      views: {
+        'tab-volte-sempre': {
+          templateUrl: 'templates/tab-volte-sempre.html',
+          controller: 'VolteSempreCtrl'
+        }
+      }
+    })
+
   .state('tab.menu', {
       url: '/menu',
       views: {

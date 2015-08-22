@@ -68,11 +68,13 @@ angular.module('starter.controllers', [])
   }
 
   $scope.solicitarFechamento = function(){
-    $http.post(homeUrl+'api/comanda/' + $scope.comanda.numeroDaComanda + '/fechar').success(function(){
-      $scope.estado = "comandaFechada";
+    $http.post(homeUrl+'api/comanda/' + $scope.comanda.Numero + '/fechar').success(function(){
+       $state.go('tab.volteSempre');
     });   
   };
 })
+
+.controller('VolteSempreCtrl', function() { })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
   $scope.pedido = [];
