@@ -15,3 +15,60 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.logo {
+    font-family: 'Lobster', cursive;
+    color: #ffb606;
+    font-size: 41px;
+    margin: 15px 0;
+    text-align: center;
+    display: block;
+}
+
+#relacaoDeComanda {
+    width: 100%;
+}
+
+.titulo-comanda {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.data {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+table {
+    border: 1px solid #E8E8E8;
+}
+thead tr {
+    border-bottom: 2px solid #ffb606;
+}
+
+    thead tr th {
+        border: 1px solid #E8E8E8;
+        padding: 7px;
+    }
+
+tbody tr {
+    margin: 12px;
+    display: block;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width15 {
+    width: 15%;
+}

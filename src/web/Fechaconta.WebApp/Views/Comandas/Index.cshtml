@@ -3,16 +3,23 @@
     ViewBag.Title = "Relação de Comandas";
 }
 
-<h2>@ViewBag.Title</h2>
+<span class="logo">FechaConta</span>
 
-<table>
+<h2 class="titulo-comanda">@ViewBag.Title</h2>
 
-    <tr>
-        <th>Comanda</th>
-        <th>Mesa</th>
-        <th>Status</th>
-        <th>Total</th>
-    </tr>
+
+<div class="data">
+    25/08/2015
+</div>
+<table id="relacaoDeComanda">
+    <thead>
+        <tr>
+            <th>Comanda</th>
+            <th>Mesa</th>
+            <th>Status</th>
+            <th>Total</th>
+        </tr>
+    </thead>
     @foreach (var comanda in Model)
     {
         <tr>
