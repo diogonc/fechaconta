@@ -62,6 +62,16 @@ angular.module('starter.controllers', [])
   $scope.mostraFinalizarPedido = function(){
     return $scope.estado === 'finalizarPedido' || $scope.estado === 'trocoPara';
   };
+
+  $scope.mostraCobrancaFechada = function(){
+    return $scope.estado === 'comandaFechada';
+  }
+
+  $scope.solicitarFechamento = function(){
+    $http.post(homeUrl+'api/comanda/' + $scope.comanda.numeroDaComanda + '/fechar').success(function(){
+      $scope.estado = "comandaFechada";
+    });   
+  };
 })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
