@@ -14,12 +14,12 @@
               <div class="texto">qtd: {{item.quantidade}}</div>
           </div> 
           <div class="valor">R$ {{item.produto.Valor | number:2}} <span>item</span></div>
-          <div class="valor">Sub-total: R$ {{item.valorTotal | number:2}}</div>
+          <div class="valorTotal">Sub-total: R$ {{item.valorTotal | number:2}}</div>
           <div class="excluir">excluir pedido</div>
         </div>
       </ion-item>
     </ion-list>
     <button class="button button-block button-amarelo" ng-click="confirmar()">confirmar pedido</button>
-    <button class="button button-block button-amarelo" ng-click="voltar()">voltar</button>
+    <button class="button button-block button-marrom" ng-click="voltar()">voltar</button>
   </ion-content>
 </ion-view>
