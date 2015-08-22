@@ -33,11 +33,11 @@
         <span class="valor-para-troco">Precisa de troco para:</span>
         <input type="tel" placeholder="R$" ng-model="trocoPara.valor">
       </label>
-      Valor do troco: {{ troco() }}
+      <span class="valor-do-troco">O seu troco será:  R$ {{ troco() }}</span>
       </form>
     </div>
     <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo" ng-click="solicitarFechamento()">solicitar fechamento</button>
-    <button ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
+    <button id="fechaConta" ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">FechaConta</button>
     <button ng-hide="mostraComandaFechada" class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>
 </ion-view>
