@@ -40,35 +40,59 @@ textarea {
     margin: 20px 0;
 }
 
-table {
+.lista {
     border: 1px solid #E8E8E8;
 }
-thead tr {
+thead tr.margin-bottom {
     border-bottom: 2px solid #ffb606;
 }
 
-    thead tr th {
+    thead.lista tr th {
         border: 1px solid #E8E8E8;
         padding: 7px;
     }
 
-tbody tr {
+.borda{
     margin: 12px;
-    display: block;
+    border: 1px solid #E8E8E8;
+    padding: 7px;
+}
+
+tbody tr:hover{
+    background-color: #EFEFEF;
+    cursor: pointer;
+}
+
+
+.visualizacao-comanda {
+    margin: 6px;
+    width: 99%;
+}
+
+.visualizacao-comanda thead tr {
+    border: 1px solid #efefef;
+}
+
+.visualizacao-comanda thead tr th{
+    padding: 7px;
+}
+
+.visualizacao-comanda td {
+    margin: 5px 0;
+}
+
+.width41 {
+    width:41%;
+}
+
+.width35 {
+    width: 35%;
 }
 
 .width15 {
     width: 15%;
 }
 
-.width15 {
-    width: 15%;
-}
-
-.width15 {
-    width: 15%;
-}
-
-.width15 {
-    width: 15%;
+.itens-da-comanda tr {
+    margin-bottom: 10px;
 }

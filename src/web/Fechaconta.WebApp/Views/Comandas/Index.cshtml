@@ -12,38 +12,46 @@
     25/08/2015
 </div>
 <table id="relacaoDeComanda">
-    <thead>
-        <tr>
+    <thead class="lista">
+        <tr class="margin-bottom">
             <th>Comanda</th>
             <th>Mesa</th>
             <th>Status</th>
             <th>Total</th>
         </tr>
     </thead>
+
     @foreach (var comanda in Model)
     {
-        <tr>
-            <td>@comanda.Numero</td>
-            <td>@comanda.NumeroDaMesa</td>
-            <td>@comanda.Status</td>
-            <td>@comanda.Total.ToString("C")</td>
+        <tr class="visualizacao-da-lista">
+            <td class="borda">@comanda.Numero</td>
+            <td class="borda">@comanda.NumeroDaMesa</td>
+            <td class="borda">@comanda.Status</td>
+            <td class="borda">@comanda.Total.ToString("C")</td>
         </tr>
+
         <tr>
             <td colspan="4">
-                <table>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Sub-Total</th>
-                    </tr>
-                    @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
-                    {
+                <table class="visualizacao-comanda">
+                    <thead>
                         <tr>
-                            <td>@itemDoPedido.Produto.Nome</td>
-                            <td>@itemDoPedido.Quantidade</td>
-                            <td>@itemDoPedido.ValorTotal.ToString("C")</td>
+                            <th class="width41">Produto</th>
+                            <th class="width15">Quantidade</th>
+                            <th class="width35">Valor por item</th>
+                            <th class="width35">Sub-Total</th>
                         </tr>
-                    }
+                    </thead>
+                    <tbody class="itens-da-comanda">
+                        @foreach (var itemDoPedido in comanda.Pedidos.SelectMany(p => p.ItensDoPedido))
+                        {
+                            <tr>
+                                <td>@itemDoPedido.Produto.Nome</td>
+                                <td>@itemDoPedido.Quantidade</td>
+                                <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
+                                <td class="width35">@itemDoPedido.ValorTotal.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
             </td>
         </tr>
