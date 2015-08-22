@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 .controller('MesaCtrl', function($scope, $http, ComandaRepository, PedidoRepository, $state) {
-  
+
   $scope.$on('$ionicView.enter', function(e) {
     ComandaRepository.limparDados();
     PedidoRepository.limparDados();  
@@ -69,8 +69,8 @@ angular.module('starter.controllers', [])
 
   $scope.solicitarFechamento = function(){
     $http.post(homeUrl+'api/comanda/' + $scope.comanda.Numero + '/fechar').success(function(){
-       $state.go('tab.volteSempre');
-    });   
+     $state.go('tab.volteSempre');
+   });   
   };
 })
 
@@ -93,9 +93,9 @@ angular.module('starter.controllers', [])
   }
 
   $scope.confirmar = function(){
-    
+
     $http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){      
-     
+
      PedidoRepository.limparDados();
      $state.go('tab.comanda');
    });
@@ -115,16 +115,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
-  var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
     $http.get(homeUrl+'api/cardapio').success(function(data){
       $scope.itens = data;
       inicializarQuantidade();
     });
-    comanda = ComandaRepository.get();
+    comanda = ComandaRepository.get();    
     $scope.mesa = comanda.mesa;
-    pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
+    $scope.pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
   });
 
   $scope.categoriaSelecionada = 0;
@@ -134,19 +133,23 @@ angular.module('starter.controllers', [])
   };
 
   $scope.adicionarItem = function(item){
-    pedido.adicionar(item);
+    $scope.pedido.adicionar(item);    
     item.quantidade += 1;
   };
 
   $scope.removerItem = function(item){
-    pedido.remover(item);
+    $scope.pedido.remover(item);
     if(item.quantidade > 0) {
       item.quantidade -= 1;
     }
   };
 
+ $scope.podeFazerPedido = function(){  
+  return ($scope.pedido !== undefined && $scope.pedido.itens.length > 0);
+ };
+
   $scope.fazerPedido = function(){
-    PedidoRepository.save(pedido);
+    PedidoRepository.save($scope.pedido);
     $state.go('tab.confirmar');
   };
 

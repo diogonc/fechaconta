@@ -30,7 +30,7 @@
       </ion-item>
     </ion-list>
   </ion-content>  
-    <button class="button button-amarelo botao-pedido" ng-click="fazerPedido()">
+    <button class="button button-amarelo botao-pedido" ng-click="fazerPedido()" ng-show="{{podeFazerPedido()}}">
       fazer pedido
     </button>
 </ion-view>
