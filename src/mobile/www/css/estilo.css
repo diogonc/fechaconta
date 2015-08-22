@@ -38,7 +38,6 @@ input{
 }
 
 
-
 .button-marrom{
 	background: #5D3836;
     border-color: #492827;
@@ -48,6 +47,14 @@ input{
     width: 95% !important;
 }
 
+.botao-pedido{
+	position: fixed;
+	bottom: 0;
+	z-index: 999999;
+	margin:0 !important;
+	border-radius: 0 !important;
+	width: 100% !important;
+}
 
 .logo{
 	color: #ffb606;
@@ -70,6 +77,10 @@ input{
 
 .conteudo{
 	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.conteudo-menu{
+	bottom: 55px;
 }
 
 #paginaInicial .logo{
@@ -115,15 +126,16 @@ input{
 
 
 .numero-mesa{
-	display: inline-block;
-	vertical-align: top;
-	width: 38%;
-    margin: 12px 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 29%;
+    margin: 12px 9px;
     float: right;
+    text-align: right;
 }
 
 	.numero-mesa .texto{
-		font-size: 15px;
+		font-size: 20px;
 	    color: #fff;
 	    display: inline-block;
 	    vertical-align: top;
@@ -217,7 +229,7 @@ input{
 }
 
 	.quantidade-item .texto{
-		font-size: 15px;
+		font-size: 20px;
 	    color: #fff;
 	    display: inline-block;
 	    vertical-align: top;
@@ -229,10 +241,10 @@ input{
 		width: 50%;
 		display: inline-block;
 	    vertical-align: top;
-	    	font-family: 'Courgette', cursive;
+	    font-family: 'Courgette', cursive;
 	   	padding: 8px;
 		color: #fff;
-		    text-align: center;
+		text-align: center;
 	}
 
 
@@ -347,4 +359,26 @@ input{
 }
 
 
-#visualizacaoComanda{}
+#visualizacaoComanda .itens ul{}
+#visualizacaoComanda .itens ul li .quantidade-item{
+	float: none;
+}
+
+#visualizacaoComanda .itens ul li .quantidade-item .valor{
+	display: inline-block;
+}
+
+#visualizacaoComanda .itens ul li .quantidade-item .valorTotal{
+	display: inline-block;
+}
+
+.valorTotalComanda{
+	color: #fff;
+	text-align: right;
+	font-size: 18px;
+	margin: 10px;
+}
+
+.valorTotalComanda span{
+	font-size: 25px;
+}

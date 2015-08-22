@@ -12,17 +12,18 @@
           </div> 
           <ul>
           	<li ng-repeat="item in pedido.ItensDoPedido">
-      				<div class="quantidade-item">
-      				<div class="texto">qtd: {{item.Quantidade}}</div>
-      				<div class="texto">{{item.Produto.Nome}}</div>
-      				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
-      				<div class="valor">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
+  				<div class="quantidade-item">
+	  				<div class="texto">qtd: {{item.Quantidade}}</div>
+	  				<div class="texto">{{item.Produto.Nome}}</div>
+	  				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
+  					<div class="valorTotal">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
+	  			</div>	
           	</li>
           </ul>
         </div>
       </ion-item>
     </ion-list>
-    <div class="titulo">TOTAL DA COMANDA: R$ {{comanda.Total | number:2}}</div>
+    <div class="valorTotalComanda">Valor total da comanda: <span>R$ {{comanda.Total | number:2}}</span></div>
     <div ng-show="mostraOpcoesDePagamento()">
       <button  class="button button-block button-amarelo" ng-click="escolherTroco()">Dinheiro</button>
       <button  class="button button-block button-amarelo" ng-click="finalizarPedido()">Cartão de crédito/débito</button>
@@ -34,7 +35,7 @@
       </label>
     </div>
     <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo">solicitar fechamento</button>
-    <button ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>        
+    <button ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
     <button class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>
 </ion-view>

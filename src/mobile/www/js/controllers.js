@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
     return $scope.estado === 'opcoesDePagamento';
   };
 
-    $scope.mostraTrocoPara = function(){
+  $scope.mostraTrocoPara = function(){
     return $scope.estado === 'trocoPara';
   };
 
