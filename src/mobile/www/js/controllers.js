@@ -27,7 +27,8 @@ angular.module('starter.controllers', [])
   });
 
   $scope.troco = function (){
-    return $scope.trocoPara.valor - $scope.comanda.Total;
+    var trocoPara = $scope.trocoPara.valor === '' ? 0 : $scope.trocoPara.valor;
+    return trocoPara - $scope.comanda.Total;
   }
 
   $scope.voltar = function(){
