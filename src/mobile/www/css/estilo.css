@@ -367,17 +367,25 @@ input{
 }
 
 
-#visualizacaoComanda .itens ul{}
+#visualizacaoComanda .itens ul li {
+	margin: 10px 0;
+}
 #visualizacaoComanda .itens ul li .quantidade-item{
+	display: inline-block;
+	vertical-align: top;
 	float: none;
 }
 
-#visualizacaoComanda .itens ul li .quantidade-item .valor{
+#visualizacaoComanda .itens ul li .valor{
 	display: inline-block;
+	font-size: 16px !important;
 }
 
-#visualizacaoComanda .itens ul li .quantidade-item .valorTotal{
+#visualizacaoComanda .itens ul li .valorTotal{
 	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+	font-size: 19px;
 }
 
 .valorTotalComanda{
@@ -389,8 +397,14 @@ input{
 
 .nomeDoProd{
 	width: 75%;
-}
+
+}	
 
 .valorTotalComanda span{
 	font-size: 25px;
+}
+
+.valor-para-troco{
+	font-size: 20px;
+	color: #fff;
 }
