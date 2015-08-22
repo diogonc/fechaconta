@@ -80,7 +80,12 @@ angular.module('starter.controllers', [])
   $scope.pedido = [];
 
   $scope.$on('$ionicView.enter', function(e) {    
-    $scope.pedido = PedidoRepository.get();
+
+    var pedido = PedidoRepository.get();
+    if (pedido.length == 0 || pedido.itens.length == 0){
+      $state.go('tab.menu');
+    }
+    $scope.pedido = pedido;
   });
 
   $scope.voltar = function(){
