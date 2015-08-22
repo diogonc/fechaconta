@@ -436,3 +436,17 @@ input{
 	font-family: 'Lobster', cursive;	
 	font-size: 21px;
 }
+
+.volte-sempre{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    position: absolute;
+    top: 39%;
+}
+
+.mensagem{}
+.volte-sempre .logo {
+	font-size: 28px;
+	margin: 28px 0;
+}
