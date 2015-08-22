@@ -10,7 +10,11 @@ namespace Fechaconta.WebApp.Controllers
     {
         public Comanda Get(string numeroDaComanda)
         {
-            return ComandaRepositorio.BuscarPor(numeroDaComanda);
+            var comanda = ComandaRepositorio.BuscarPor(numeroDaComanda);
+            if (comanda == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            return comanda;
         }
 
         public HttpResponseMessage Post(int numeroDaMesa)
@@ -20,6 +24,18 @@ namespace Fechaconta.WebApp.Controllers
             ComandaRepositorio.Adicionar(comanda);
 
             return new HttpResponseMessage(HttpStatusCode.Created) { Content = new StringContent(numeroDaComanda) };
+        }
+
+        [Route("api/Comanda/{numeroDaComanda}/fechar")]
+        public HttpResponseMessage Post(string numeroDaComanda)
+        {
+            var comanda = ComandaRepositorio.BuscarPor(numeroDaComanda);
+            if (comanda == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            comanda.Fechar();
+
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
