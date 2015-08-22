@@ -74,7 +74,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('VolteSempreCtrl', function() { })
+.controller('VolteSempreCtrl', function($scope) {})
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
   $scope.pedido = [];
