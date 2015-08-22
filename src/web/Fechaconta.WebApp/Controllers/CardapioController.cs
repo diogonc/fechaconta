@@ -35,7 +35,7 @@ namespace Fechaconta.WebApp.Controllers
 
             cardapio.Adicionar("Bebidas", "Skol", "Aquela que desce redondo.", 4.5, "skol-garafa.png");
             cardapio.Adicionar("Bebidas", "Antartica", "A cerveja Original.", 7.70, "antartica-original.png");
-            cardapio.Adicionar("Bebidas", "Bhama", "Mais geladinha ainda.", 4.30, "brahma-garafa.png");
+            cardapio.Adicionar("Bebidas", "Brahma", "Mais geladinha ainda.", 4.30, "brahma-garafa.png");
 
             return cardapio;
         }
