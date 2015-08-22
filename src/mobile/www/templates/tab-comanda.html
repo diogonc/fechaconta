@@ -7,16 +7,16 @@
     <ion-list id="listaProdutos">
       <ion-item class="itens item-remove-animate" ng-repeat="pedido in comanda.Pedidos" type="item-text-wrap">
         <div class="informacoes">
-          <div class="descricoes">
-              <div class="titulo">Pedido {{$index + 1}}</div>
-          </div> 
+          <div class="texto">Pedido {{$index + 1}}</div>
           <ul>
-         	<li ng-repeat="item in pedido.ItensDoPedido">
-  				<div class="quantidade-item">qtd: {{item.Quantidade}}</div>
-  				<div class="texto nomeDoProd">{{item.Produto.Nome}}</div>
-  				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
-				<div class="valorTotal">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
-          	</li>
+            <li ng-repeat="item in pedido.ItensDoPedido">          
+                <div class="descricoes">
+                    <div class="titulo nomeDoProd">{{item.Produto.Nome}}</div>
+                </div> 
+        				<div class="quantidade-item">qtd: {{item.Quantidade}}</div>
+        				<div class="valor">R$ {{item.Produto.Valor | number:2}} <span>item</span></div>
+      				<div class="valorTotal">Sub-total: R$ {{item.ValorTotal | number:2}}</div>
+            </li>
           </ul>
         </div>
       </ion-item>
@@ -27,12 +27,15 @@
       <button  class="button button-block button-amarelo" ng-click="finalizarPedido()">Cartão de crédito/débito</button>
     </div>
     <div ng-show="mostraTrocoPara()">
+      <form>
       <label class="item item-input item-floating-label">
-        <span class="input-label">Troco para</span>
-        <input type="tel" placeholder="Troco para" ng-model="troco">
+        <span class="valor-para-troco">Precisa de troco para:</span>
+        <input type="tel" placeholder="R$" ng-model="trocoPara.valor">
       </label>
+      Valor do troco: {{ troco() }}
+      </form>
     </div>
-    <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo">solicitar fechamento</button>
+    <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo" ng-click="solicitarFechamento()">solicitar fechamento</button>
     <button ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
     <button class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>

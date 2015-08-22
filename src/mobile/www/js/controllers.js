@@ -16,14 +16,20 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
-  
+  $scope.trocoPara = {valor: ''};
+  $scope.comanda = {Total: 0};
   $scope.$on('$ionicView.enter', function(e) {
     $scope.estado = 'aberta';
     var comanda = ComandaRepository.get();
     $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){
-      $scope.comanda = comanda;      
+      $scope.comanda = comanda;
     });   
   });
+
+  $scope.troco = function (){
+    var trocoPara = $scope.trocoPara.valor === '' ? 0 : $scope.trocoPara.valor;
+    return trocoPara - $scope.comanda.Total;
+  }
 
   $scope.voltar = function(){
     $state.go('tab.menu');
@@ -59,9 +65,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
+  $scope.pedido = [];
 
-  $scope.$on('$ionicView.enter', function(e) {
-    $scope.pedido = [];
+  $scope.$on('$ionicView.enter', function(e) {    
     $scope.pedido = PedidoRepository.get();
   });
 
