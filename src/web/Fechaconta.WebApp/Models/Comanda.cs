@@ -22,5 +22,10 @@ namespace Fechaconta.WebApp.Models
         {
             Pedidos.Add(pedido);
         }
+
+        public void Fechar()
+        {
+            Fechada = true;
+        }
     }
 }
