@@ -22,7 +22,18 @@
       </ion-item>
     </ion-list>
     <div class="valorTotalComanda">Valor total da comanda: <span>R$ {{comanda.Total | number:2}}</span></div>
-    <button class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
+    <div ng-show="mostraOpcoesDePagamento()">
+      <button  class="button button-block button-amarelo" ng-click="escolherTroco()">Dinheiro</button>
+      <button  class="button button-block button-amarelo" ng-click="finalizarPedido()">Cartão de crédito/débito</button>
+    </div>
+    <div ng-show="mostraTrocoPara()">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Troco para</span>
+        <input type="tel" placeholder="Troco para" ng-model="troco">
+      </label>
+    </div>
+    <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo">solicitar fechamento</button>
+    <button ng-show="mostraFecharPedido()" class="button button-block button-amarelo" ng-click="fecharConta()">fechar conta</button>
     <button class="button button-block button-marrom" ng-click="voltar()">voltar para o menu</button>
   </ion-content>
 </ion-view>

@@ -16,8 +16,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
+  
   $scope.$on('$ionicView.enter', function(e) {
-    
+    $scope.estado = 'aberta';
     var comanda = ComandaRepository.get();
     $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){
       $scope.comanda = comanda;      
@@ -29,13 +30,38 @@ angular.module('starter.controllers', [])
   };
 
   $scope.fecharConta = function(){
+    $scope.estado = 'opcoesDePagamento';
+  };
 
+  $scope.escolherTroco = function(){
+    $scope.estado = 'trocoPara';
+  };  
+
+  $scope.finalizarPedido = function(){
+    $scope.estado = 'finalizarPedido';
+  }
+
+  $scope.mostraOpcoesDePagamento = function(){
+    return $scope.estado === 'opcoesDePagamento';
+  };
+
+  $scope.mostraTrocoPara = function(){
+    return $scope.estado === 'trocoPara';
+  };
+
+  $scope.mostraFecharPedido = function(){
+    return $scope.estado === 'aberta';
+  };
+
+  $scope.mostraFinalizarPedido = function(){
+    return $scope.estado === 'finalizarPedido' || $scope.estado === 'trocoPara';
   };
 })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
 
   $scope.$on('$ionicView.enter', function(e) {
+    $scope.pedido = [];
     $scope.pedido = PedidoRepository.get();
   });
 
