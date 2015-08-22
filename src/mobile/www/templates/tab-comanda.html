@@ -32,7 +32,7 @@
         <span class="valor-para-troco">Precisa de troco para:</span>
         <input type="tel" placeholder="R$" ng-model="trocoPara.valor">
       </label>
-      Valor do troco: {{ troco() }}
+      Valor do troco: {{ troco() | number:2 }}
       </form>
     </div>
     <button ng-show="mostraFinalizarPedido()" class="button button-block button-amarelo" ng-click="solicitarFechamento()">solicitar fechamento</button>
