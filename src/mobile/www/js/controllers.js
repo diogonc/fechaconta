@@ -129,7 +129,6 @@ angular.module('starter.controllers', [])
   };
 
   $scope.adicionarItem = function(item){
-
     pedido.adicionar(item);
     item.quantidade += 1;
   };
@@ -144,6 +143,10 @@ angular.module('starter.controllers', [])
   $scope.fazerPedido = function(){
     PedidoRepository.save(pedido);
     $state.go('tab.confirmar');
+  };
+
+  $scope.vaiParaComanda = function(){
+    $state.go('tab.comanda');
   };
 
   function inicializarQuantidade() {

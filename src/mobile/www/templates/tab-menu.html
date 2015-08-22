@@ -4,7 +4,7 @@
     <div class="numero-mesa">
       <div class="texto">Mesa: {{mesa}}</div>
     </div>
-    <div class="minha-comanda">Minha comanda</div> 
+    <div class="minha-comanda" ng-click="vaiParaComanda()">Minha comanda</div> 
     <div class="tabs">
       <a class="categoria tab-item" ng-class="{ativo: categoriaSelecionada == $index}" ng-repeat="categoria in itens.Categorias" ng-click="alterarCategoria($index)">
         {{categoria.Nome}}
