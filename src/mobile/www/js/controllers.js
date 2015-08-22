@@ -4,8 +4,8 @@ angular.module('starter.controllers', [])
 
   $scope.$on('$ionicView.enter', function(e) {
     ComandaRepository.limparDados();
-    PedidoRepository.limparDados();  
-  });  
+    PedidoRepository.limparDados();
+  });
 
   $scope.abrirComanda = function(mesa){
    $http.post(homeUrl+'api/comanda?numeroDaMesa=' + mesa).success(function(numeroDaComanda){
@@ -23,7 +23,7 @@ angular.module('starter.controllers', [])
     var comanda = ComandaRepository.get();
     $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){
       $scope.comanda = comanda;
-    });   
+    });
   });
 
   $scope.troco = function (){
@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
 
   $scope.escolherTroco = function(){
     $scope.estado = 'trocoPara';
-  };  
+  };
 
   $scope.finalizarPedido = function(){
     $scope.estado = 'finalizarPedido';
@@ -70,18 +70,18 @@ angular.module('starter.controllers', [])
   $scope.solicitarFechamento = function(){
     $http.post(homeUrl+'api/comanda/' + $scope.comanda.Numero + '/fechar').success(function(){
      $state.go('tab.volteSempre');
-   });   
+   });
   };
 })
 
 .controller('VolteSempreCtrl', function($scope) {
-  
+
 })
 
 .controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
   $scope.pedido = [];
 
-  $scope.$on('$ionicView.enter', function(e) {    
+  $scope.$on('$ionicView.enter', function(e) {
 
     var pedido = PedidoRepository.get();
     if (pedido.length == 0 || pedido.itens.length == 0){
@@ -96,7 +96,7 @@ angular.module('starter.controllers', [])
 
   $scope.confirmar = function(){
 
-    $http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){      
+    $http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){
 
      PedidoRepository.limparDados();
      $state.go('tab.comanda');
@@ -108,15 +108,15 @@ angular.module('starter.controllers', [])
   }
 
   function removerItenDoPedido(itemParaRemover){
-    var indice = findById($scope.pedido.itens, itemParaRemover.Id);
+    var indice = findById($scope.pedido.itens, itemParaRemover.produto.Id);
     $scope.pedido.itens.splice(indice, 1);
 
     if($scope.pedido.itens.length == 0)
-      $state.go('tab.menu');   
+      $state.go('tab.menu');
   }
 })
 
-.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
+.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {
   var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -124,19 +124,19 @@ angular.module('starter.controllers', [])
       $scope.itens = data;
       inicializarQuantidade();
     });
-    comanda = ComandaRepository.get();    
+    comanda = ComandaRepository.get();
     $scope.mesa = comanda.mesa;
     pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
 
     $scope.categoriaSelecionada = 0;
   });
-  
+
   $scope.alterarCategoria = function(indiceDaCategoria){
     $scope.categoriaSelecionada = indiceDaCategoria;
   };
 
   $scope.adicionarItem = function(item){
-    pedido.adicionar(item);    
+    pedido.adicionar(item);
     item.quantidade += 1;
   };
 
@@ -147,7 +147,7 @@ angular.module('starter.controllers', [])
     }
   };
 
- $scope.podeFazerPedido = function(){  
+ $scope.podeFazerPedido = function(){
   return pedido != undefined && pedido.itens.length > 0;
  };
 
