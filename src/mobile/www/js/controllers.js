@@ -18,9 +18,8 @@ angular.module('starter.controllers', [])
 .controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
   $scope.$on('$ionicView.enter', function(e) {
     var comanda = ComandaRepository.get();
-    $scope.comanda = comanda;
-    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(data){
-      $scope.itens = data;
+    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){      
+      $scope.comanda = comanda;
     });
 
     $scope.voltar = function(){
