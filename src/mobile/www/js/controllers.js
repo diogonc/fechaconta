@@ -115,6 +115,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {  
+  var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
     $http.get(homeUrl+'api/cardapio').success(function(data){
@@ -123,33 +124,33 @@ angular.module('starter.controllers', [])
     });
     comanda = ComandaRepository.get();    
     $scope.mesa = comanda.mesa;
-    $scope.pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
+    pedido = new Pedido(comanda.numeroDaComanda, comanda.mesa);
+
+    $scope.categoriaSelecionada = 0;
   });
-
-  $scope.categoriaSelecionada = 0;
-
+  
   $scope.alterarCategoria = function(indiceDaCategoria){
     $scope.categoriaSelecionada = indiceDaCategoria;
   };
 
   $scope.adicionarItem = function(item){
-    $scope.pedido.adicionar(item);    
+    pedido.adicionar(item);    
     item.quantidade += 1;
   };
 
   $scope.removerItem = function(item){
-    $scope.pedido.remover(item);
+    pedido.remover(item);
     if(item.quantidade > 0) {
       item.quantidade -= 1;
     }
   };
 
  $scope.podeFazerPedido = function(){  
-  return ($scope.pedido !== undefined && $scope.pedido.itens.length > 0);
+  return pedido != undefined && pedido.itens.length > 0;
  };
 
   $scope.fazerPedido = function(){
-    PedidoRepository.save($scope.pedido);
+    PedidoRepository.save(pedido);
     $state.go('tab.confirmar');
   };
 
