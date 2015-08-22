@@ -56,11 +56,11 @@ angular.module('starter.controllers', [])
   };
 
   $scope.mostraFecharPedido = function(){
-    return $scope.estado === 'aberta';
+    return $scope.comanda.Total > 0 && $scope.estado === 'aberta';
   };
 
   $scope.mostraFinalizarPedido = function(){
-    return $scope.estado === 'finalizarPedido' || $scope.estado === 'trocoPara';
+    return $scope.comanda.Total > 0 && ($scope.estado === 'finalizarPedido' || $scope.estado === 'trocoPara');
   };
 
   $scope.mostraCobrancaFechada = function(){
