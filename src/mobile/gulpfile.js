@@ -8,15 +8,16 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./sass/**/*.sass']
 };
 
 gulp.task('default', ['sass']);
 
 gulp.task('sass', function(done) {
-  gulp.src('./scss/ionic.app.scss')
+  gulp.src('./sass/ionic.app.sass')
     .pipe(sass({
-      errLogToConsole: true
+      errLogToConsole: true,
+      indentedSyntax: true
     }))
     .pipe(gulp.dest('./www/css/'))
     .pipe(minifyCss({
