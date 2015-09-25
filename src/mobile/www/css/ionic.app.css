@@ -7684,6 +7684,30 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+* {
+  margin: 0;
+  padding: 0; }
+
 body {
   font: 100%;
   background-color: #000; }
+
+.tab-nav {
+  display: none;
+  margin: 0 !important; }
+
+input, select, textarea {
+  color: #fff !important; }
+
+input {
+  font-family: 'Lobster', cursive;
+  font-family-padding: 8px;
+  color: #fff; }
+
+body#body {
+  background: url(../img/bg.jpg) center top;
+  position: fixed;
+  font-family: 'Lobster', cursive; }
+
+.oculto {
+  display: none !important; }
