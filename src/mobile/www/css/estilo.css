@@ -8,6 +8,12 @@
     margin: 0 !important;
 }
 
+
+.pane, .view {
+	 background-color: transparent !important;
+}	 
+
+
 input, select, textarea{
     color: #fff !important;
 }
@@ -26,6 +32,25 @@ input{
 	font-family: 'Lobster', cursive;
    	padding: 8px;
 	color: #fff;
+}
+
+
+button{
+
+	  display: inline-block;
+	  margin: 0;
+	  padding: 0 12px;
+	  min-width: 52px;
+	  min-height: 47px;
+	  border-width: 1px;
+	  border-style: solid;
+	  border-radius: 2px;
+	  vertical-align: top;
+	  text-align: center;
+	  text-overflow: ellipsis;
+	  font-size: 16px;
+	  line-height: 42px;
+	  cursor: pointer; 
 }
 
 .button-amarelo{

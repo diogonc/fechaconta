@@ -2708,7 +2708,7 @@ ion-infinite-scroll {
   top: 88px; }
 
 .has-tabs-top {
-  top: 93px; }
+  top: 5px; }
 
 .has-header.has-subheader.has-tabs-top {
   top: 137px; }
@@ -4640,9 +4640,6 @@ ion-tabs.tabs-color-active-dark .tab-item {
  * --------------------------------------------------
  */
 .item {
-  border-color: #ddd;
-  background-color: #fff;
-  color: #444;
   position: relative;
   z-index: 2;
   display: block;
@@ -6528,10 +6525,7 @@ progress {
  * Buttons
  * --------------------------------------------------
  */
-.button {
-  border-color: #b2b2b2;
-  background-color: #f8f8f8;
-  color: #444;
+/*.button {
   position: relative;
   display: inline-block;
   margin: 0;
@@ -6547,6 +6541,9 @@ progress {
   font-size: 16px;
   line-height: 42px;
   cursor: pointer; }
+*/
+
+  
   .button:hover {
     color: #444;
     text-decoration: none; }
