@@ -7694,6 +7694,9 @@ body {
   color: red;
   font-size: 15px; }
 
+.has-tabs-top {
+  top: 6px !important; }
+
 .tab-nav {
   display: none;
   margin: 0 !important; }
