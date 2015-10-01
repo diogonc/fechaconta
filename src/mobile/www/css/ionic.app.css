@@ -7684,6 +7684,81 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.tabs {
+  overflow: hidden;
+  width: 100%;
+  position: inherit;
+  background: rgba(17, 17, 17, 0.8) !important;
+  color: #fff; }
+  .tabs a.categoria {
+    font-family: 'Lobster', cursive;
+    margin: 3px;
+    color: #fff;
+    font-size: 16px; }
+  .tabs .ativo {
+    color: #ffb606 !important; }
+
+#paginaInicial {
+  position: absolute;
+  top: 23%;
+  width: 83%;
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+  height: auto; }
+  #paginaInicial .logo {
+    text-align: center;
+    display: block;
+    margin-top: 31px;
+    font-size: 57px; }
+
+.chamada-logo {
+  font-size: 20px; }
+
+.item {
+  border: none; }
+
+label {
+  color: #fff; }
+  label span {
+    color: #fff !important;
+    font-size: 12px; }
+  label input {
+    border-bottom: 1px solid #fff;
+    color: #fff !important;
+    font-family: 'Lobster', cursive;
+    font-size: 22px; }
+
+input {
+  -ms-input-placeholder-color: #fff !important; }
+  input ::-webkit-input-placeholder {
+    color: #fff !important; }
+  input :-moz-placeholder {
+    color: #fff !important; }
+
+.numero-mesa {
+  display: inline-block;
+  vertical-align: top;
+  width: 29%;
+  margin: 12px 9px;
+  text-align: center; }
+  .numero-mesa .texto {
+    font-size: 18px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px; }
+  .numero-mesa input {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #635858;
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'Lobster', cursive;
+    padding: 8px;
+    color: #fff;
+    text-align: center; }
+
 * {
   margin: 0;
   padding: 0; }
@@ -7766,67 +7841,6 @@ body#body {
 .conteudo-menu {
   bottom: 55px; }
 
-#paginaInicial {
-  position: absolute;
-  top: 23%;
-  width: 83%;
-  text-align: center;
-  margin: 0 auto;
-  color: #fff;
-  height: auto; }
-  #paginaInicial .logo {
-    text-align: center;
-    display: block;
-    margin-top: 31px;
-    font-size: 57px; }
-
-.chamada-logo {
-  font-size: 20px; }
-
-.item {
-  border: none; }
-
-label {
-  color: #fff; }
-  label span {
-    color: #fff !important;
-    font-size: 12px; }
-  label input {
-    border-bottom: 1px solid #fff;
-    color: #fff !important;
-    font-family: 'Lobster', cursive;
-    font-size: 22px; }
-
-input {
-  -ms-input-placeholder-color: #fff !important; }
-  input ::-webkit-input-placeholder {
-    color: #fff !important; }
-  input :-moz-placeholder {
-    color: #fff !important; }
-
-.numero-mesa {
-  display: inline-block;
-  vertical-align: top;
-  width: 29%;
-  margin: 12px 9px;
-  text-align: center; }
-  .numero-mesa .texto {
-    font-size: 18px;
-    color: #fff;
-    display: inline-block;
-    vertical-align: top;
-    margin: 5px; }
-  .numero-mesa input {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #635858;
-    width: 50%;
-    display: inline-block;
-    vertical-align: top;
-    font-family: 'Lobster', cursive;
-    padding: 8px;
-    color: #fff;
-    text-align: center; }
-
 .minha-comanda {
   color: #fff;
   font-size: 15px;
@@ -7837,21 +7851,8 @@ input {
   text-align: center;
   background-color: #5D3836;
   border-radius: 3px;
-  padding: 4px; }
-
-.tabs {
-  overflow: hidden;
-  width: 100%;
-  position: inherit;
-  background: rgba(17, 17, 17, 0.8) !important;
-  color: #fff; }
-  .tabs a.categoria {
-    font-family: 'Lobster', cursive;
-    margin: 3px;
-    color: #fff;
-    font-size: 16px; }
-  .tabs .ativo {
-    color: #ffb606 !important; }
+  padding: 4px;
+  cursor: pointer; }
 
 #listaProdutos {
   width: 100%; }
