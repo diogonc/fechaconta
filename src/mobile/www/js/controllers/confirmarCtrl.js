@@ -1,4 +1,4 @@
-appControllers.controller('ConfirmarCtrl', function($scope, $http, $state, PedidoRepository) {
+appControllers.controller('ConfirmarCtrl', function($scope, WebApi, $state, PedidoRepository) {
   $scope.pedido = [];
 
   $scope.$on('$ionicView.enter', function(e) {
@@ -15,12 +15,11 @@ appControllers.controller('ConfirmarCtrl', function($scope, $http, $state, Pedid
   }
 
   $scope.confirmar = function(){
-
-    $http.post(homeUrl + 'api/pedido', { NumeroDaComanda: $scope.pedido.numeroDaComanda, NumeroDaMesa: $scope.pedido.mesa, ItensDoPedido: $scope.pedido.itens }).success(function(numeroDaComanda){
-
-     PedidoRepository.limparDados();
-     $state.go('tab.comanda');
-   });
+    WebApi.fazerPedido($scope.pedido.numeroDaComanda, $scope.pedido.mesa, $scope.pedido.itens)
+    .then(function(numeroDaComanda){
+      PedidoRepository.limparDados();
+      $state.go('tab.comanda');
+    });
   };
 
   $scope.excluirItem = function(item){

@@ -1,10 +1,11 @@
-appControllers.controller('ComandaCtrl', function($scope, $http, $state, ComandaRepository) {
+appControllers.controller('ComandaCtrl', function($scope, WebApi, $state, ComandaRepository) {
   $scope.trocoPara = {valor: ''};
   $scope.comanda = {Total: 0};
   $scope.$on('$ionicView.enter', function(e) {
     $scope.estado = 'aberta';
     var comanda = ComandaRepository.get();
-    $http.get(homeUrl+'api/comanda?numeroDaComanda=' + comanda.numeroDaComanda).success(function(comanda){
+
+    WebApi.obterComanda(comanda.numeroDaComanda).then(function(comanda){
       $scope.comanda = comanda;
     });
   });
@@ -51,7 +52,7 @@ appControllers.controller('ComandaCtrl', function($scope, $http, $state, Comanda
   }
 
   $scope.solicitarFechamento = function(){
-    $http.post(homeUrl+'api/comanda/' + $scope.comanda.Numero + '/fechar').success(function(){
+    WebApi.fecharComanda($scope.comanda.Numero).then(function(){
      $state.go('tab.volteSempre');
    });
   };

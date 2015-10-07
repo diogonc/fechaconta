@@ -7,7 +7,7 @@ appControllers.controller('MesaCtrl', function($scope, WebApi, ComandaRepository
 
 	$scope.abrirComanda = function(mesa){
 		WebApi.abrirComanda(mesa).then(function(numeroDaComanda){
-			ComandaRepository.save({mesa:mesa, numeroDaComanda: numeroDaComanda});
+			ComandaRepository.save({mesa: mesa, numeroDaComanda: numeroDaComanda});
 			$state.go('tab.menu');
 		});
 	};

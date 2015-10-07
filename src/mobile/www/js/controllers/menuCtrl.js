@@ -1,8 +1,9 @@
-appControllers.controller('MenuCtrl', function($scope, $http, ComandaRepository,  $state, PedidoRepository) {
+appControllers.controller('MenuCtrl', function($scope, WebApi, ComandaRepository,  $state, PedidoRepository) {
   var pedido;
 
   $scope.$on('$ionicView.enter', function(e) {
-    $http.get(homeUrl+'api/cardapio').success(function(data){
+
+    WebApi.obterCardapio().then(function(data){
       $scope.itens = data;
       inicializarQuantidade();
     });
@@ -29,9 +30,9 @@ appControllers.controller('MenuCtrl', function($scope, $http, ComandaRepository,
     }
   };
 
- $scope.podeFazerPedido = function(){
-  return pedido != undefined && pedido.itens.length > 0;
- };
+  $scope.podeFazerPedido = function(){
+    return pedido != undefined && pedido.itens.length > 0;
+  };
 
   $scope.fazerPedido = function(){
     PedidoRepository.save(pedido);
@@ -49,5 +50,5 @@ appControllers.controller('MenuCtrl', function($scope, $http, ComandaRepository,
       categoria.Itens[j].quantidade = 0;
     }
   }
-  };
+};
 });
