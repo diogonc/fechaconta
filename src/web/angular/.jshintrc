@@ -1,16 +1,25 @@
 {
   "bitwise": true,
-  "browser": true,
-  "curly": true,
-  "eqeqeq": true,
-  "esnext": true,
-  "latedef": true,
+  "immed": true,
+  "newcap": true,
   "noarg": true,
-  "node": true,
-  "strict": true,
+  "noempty": true,
+  "nonew": true,
+  "trailing": true,
+  "maxlen": 200,
+  "boss": true,
+  "eqnull": true,
+  "expr": true,
+  "globalstrict": true,
+  "laxbreak": true,
+  "loopfunc": true,
+  "sub": true,
   "undef": true,
+  "indent": 2,
   "unused": true,
+
+  "node": true,
   "globals": {
-    "angular": false
+    "System": true
   }
 }
