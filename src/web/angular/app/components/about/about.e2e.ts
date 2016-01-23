@@ -1,14 +1,8 @@
 describe('About', function() {
 
   beforeEach(function() {
-
-    browser.get('/dist/dev');
-
-    element(by.css('#username')).sendKeys('username');
-    element(by.css('#password')).sendKeys('password');
-
-    element(by.css('app section login form button')).click();
-
+    browser.get('/dist/dev/');
+    browser.executeScript('window.localStorage.setItem("token","value");');
     browser.get('/dist/dev/#/about');
   });
 
