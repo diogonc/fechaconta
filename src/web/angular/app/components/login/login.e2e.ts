@@ -1,7 +1,7 @@
 describe('Login', function() {
 
   beforeEach(function() {
-    browser.get('/dist/dev/#/login');
+    browser.get('/dist/dev/');
   });
 
   it('should have an input', function() {

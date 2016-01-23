@@ -15,8 +15,8 @@ export class LoginCmp {
   constructor(public userRepository: UserRepository) {}
 
   login(): boolean {
+    //if (this.username === 'username' && this.password === 'password')
     this.userRepository.setToken(this.password);
-    console.log(this.username, this.password);
     return false;
   }
 }

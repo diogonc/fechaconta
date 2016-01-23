@@ -16,7 +16,6 @@ export class UserRepository {
   }
 
   isLogged(): boolean {
-    console.log(this.getToken());
     return this.getToken() !== '';
   }
 }

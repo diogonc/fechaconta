@@ -2,6 +2,11 @@ describe('App', function() {
 
   beforeEach(function() {
       browser.get('/dist/dev');
+
+      element(by.css('#username')).sendKeys('username');
+      element(by.css('#password')).sendKeys('password');
+
+      element(by.css('app section login form button')).click();
   });
 
   it('should have a title', function() {
@@ -16,12 +21,8 @@ describe('App', function() {
       expect(element(by.css('app section nav')).isPresent()).toEqual(true);
   });
 
-  it('should have correct nav text for Home', function() {
-      expect(element(by.css('app section nav a:first-child')).getText()).toEqual('Home');
-  });
-
-  it('should have correct nav text for About', function() {
-      expect(element(by.css('app section nav a:last-child')).getText()).toEqual('About');
+  it('should have correct nav text for Sair', function() {
+      expect(element(by.css('app section nav a:last-child')).getText()).toEqual('Sair');
   });
 
 });

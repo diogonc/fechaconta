@@ -6,7 +6,6 @@ import {
 } from 'angular2/router';
 // import {HTTP_PROVIDERS} from 'angular2/http';
 
-import {HomeCmp} from '../home/home';
 import {LoginCmp} from '../login/login';
 import {AboutCmp} from '../about/about';
 import {NameList} from '../../services/name_repository/name_list';
@@ -23,7 +22,6 @@ import {UserRepository} from '../../services/user_repository/user_repository';
 })
 @RouteConfig([
   { path: '/', component: LoginCmp, as: 'Login' },
-  { path: '/Home', component: HomeCmp, as: 'Home' },
   { path: '/about', component: AboutCmp, as: 'About' }
 ])
 
